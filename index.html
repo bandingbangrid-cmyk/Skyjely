@@ -1,344 +1,261 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SKYJELY jasun sosmed</title>
-    <meta name="description" content="Halaman daftar layanan & harga — SKYJELY jasun sosmed." />
-    <style>
-      :root{
-        --bg: #0b1020;
-        --card: rgba(255,255,255,.06);
-        --card2: rgba(255,255,255,.09);
-        --border: rgba(255,255,255,.12);
-        --text: rgba(255,255,255,.92);
-        --muted: rgba(255,255,255,.70);
-        --muted2: rgba(255,255,255,.55);
-        --accent: #7c5cff;
-        --accent2:#2ee5a6;
-        --warn:#ffcc66;
-        --shadow: 0 18px 50px rgba(0,0,0,.35);
-        --radius: 18px;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SKYJELY Jasun Sosmed</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background: linear-gradient(135deg,#0f172a,#1e293b,#020617);
+      color:white;
+      padding:20px;
+    }
+
+    .container{
+      max-width:1000px;
+      margin:auto;
+    }
+
+    .header{
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    .header h1{
+      font-size:40px;
+      color:#38bdf8;
+      text-shadow:0 0 15px #38bdf8;
+    }
+
+    .header p{
+      color:#cbd5e1;
+      margin-top:10px;
+      font-size:16px;
+    }
+
+    .card{
+      background:#111827;
+      border:1px solid #334155;
+      border-radius:20px;
+      padding:20px;
+      margin-bottom:25px;
+      box-shadow:0 0 20px rgba(0,0,0,0.4);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 0 25px rgba(56,189,248,0.3);
+    }
+
+    .card h2{
+      color:#38bdf8;
+      margin-bottom:15px;
+      font-size:24px;
+    }
+
+    .by{
+      color:#94a3b8;
+      margin-bottom:15px;
+      font-size:14px;
+    }
+
+    ul{
+      list-style:none;
+    }
+
+    ul li{
+      background:#1e293b;
+      padding:12px;
+      border-radius:10px;
+      margin-bottom:10px;
+      font-size:17px;
+      border-left:4px solid #38bdf8;
+    }
+
+    .note{
+      margin-top:15px;
+      background:#0f172a;
+      padding:12px;
+      border-radius:10px;
+      color:#facc15;
+      font-size:14px;
+    }
+
+    .footer{
+      text-align:center;
+      margin-top:40px;
+      color:#94a3b8;
+      font-size:15px;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:15px;
+      padding:12px 20px;
+      background:#38bdf8;
+      color:black;
+      text-decoration:none;
+      border-radius:12px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:white;
+    }
+
+    @media(max-width:600px){
+      .header h1{
+        font-size:30px;
       }
-      *{box-sizing:border-box}
-      html,body{height:100%}
-      body{
-        margin:0;
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-        color: var(--text);
-        background:
-          radial-gradient(1000px 600px at 15% 10%, rgba(124,92,255,.35), transparent 55%),
-          radial-gradient(800px 500px at 85% 20%, rgba(46,229,166,.22), transparent 55%),
-          radial-gradient(700px 500px at 50% 90%, rgba(255,204,102,.18), transparent 60%),
-          linear-gradient(180deg, #080b16, var(--bg));
-        line-height: 1.55;
-      }
-      a{color:inherit}
-      .wrap{max-width:1050px; margin:0 auto; padding:32px 18px 44px}
-      header{
-        display:flex; gap:16px; align-items:flex-start; justify-content:space-between;
-        padding:22px 22px;
-        border:1px solid var(--border);
-        border-radius: var(--radius);
-        background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(10px);
-      }
-      .brand h1{
-        margin:0;
-        font-size: 22px;
-        letter-spacing: .2px;
-      }
-      .brand p{
-        margin:6px 0 0;
-        color: var(--muted);
-        font-size: 13px;
-      }
-      .tag{
-        display:flex; flex-direction:column; gap:8px; align-items:flex-end;
-      }
-      .pill{
-        display:inline-flex; gap:8px; align-items:center;
-        padding:8px 12px;
-        border-radius:999px;
-        border:1px solid var(--border);
-        background: rgba(255,255,255,.06);
-        color: var(--muted);
-        font-size: 12px;
-        white-space: nowrap;
-      }
-      .dot{width:8px; height:8px; border-radius:50%; background: var(--accent2); box-shadow: 0 0 0 6px rgba(46,229,166,.12)}
-      .grid{
-        margin-top:18px;
-        display:grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 14px;
-      }
-      .card{
-        grid-column: span 12;
-        border:1px solid var(--border);
-        border-radius: var(--radius);
-        background: rgba(255,255,255,.05);
-        box-shadow: 0 12px 30px rgba(0,0,0,.25);
-        overflow:hidden;
-      }
-      .card-head{
-        display:flex;
-        align-items:flex-start;
-        justify-content:space-between;
-        gap: 10px;
-        padding: 16px 16px 12px;
-        background: linear-gradient(180deg, rgba(255,255,255,.06), transparent);
-      }
+
       .card h2{
-        margin:0;
-        font-size: 15px;
-        letter-spacing:.2px;
+        font-size:20px;
       }
-      .sub{
-        margin:6px 0 0;
-        color: var(--muted2);
-        font-size: 12px;
+
+      ul li{
+        font-size:15px;
       }
-      .badge{
-        display:inline-flex; align-items:center; gap:8px;
-        padding:6px 10px;
-        font-size: 12px;
-        color: rgba(255,255,255,.88);
-        border:1px solid var(--border);
-        background: rgba(124,92,255,.12);
-        border-radius:999px;
-        white-space:nowrap;
-      }
-      .badge .spark{
-        width:10px;height:10px;border-radius:3px;
-        background: linear-gradient(135deg, var(--accent), var(--accent2));
-      }
-      .table{
-        width:100%;
-        border-collapse: collapse;
-      }
-      .table th, .table td{
-        padding: 12px 16px;
-        border-top: 1px solid rgba(255,255,255,.08);
-      }
-      .table th{
-        text-align:left;
-        font-size: 12px;
-        letter-spacing: .35px;
-        text-transform: uppercase;
-        color: var(--muted);
-        background: rgba(255,255,255,.03);
-      }
-      .table td{
-        font-size: 14px;
-      }
-      .qty{color: rgba(255,255,255,.9); font-weight: 600;}
-      .price{
-        font-variant-numeric: tabular-nums;
-        font-weight: 700;
-        color: rgba(255,255,255,.95);
-      }
-      .note{
-        padding: 12px 16px 16px;
-        color: var(--muted);
-        font-size: 12px;
-      }
-      .note strong{color: rgba(255,255,255,.9)}
-      .callout{
-        margin-top: 16px;
-        border:1px solid rgba(255,204,102,.28);
-        background: rgba(255,204,102,.08);
-        border-radius: var(--radius);
-        padding: 14px 16px;
-        color: rgba(255,255,255,.86);
-        font-size: 13px;
-      }
-      footer{
-        margin-top: 18px;
-        color: var(--muted2);
-        font-size: 12px;
-        text-align:center;
-      }
-      @media (min-width: 860px){
-        .card.span6{grid-column: span 6;}
-        .card.span4{grid-column: span 4;}
-      }
-    </style>
-  </head>
-  <body>
-    <div class="wrap">
-      <header>
-        <div class="brand">
-          <h1>SKYJELY jasun sosmed</h1>
-          <p>Daftar layanan & harga (template HTML). Silakan isi paket yang <strong>legal</strong> dan sesuai aturan platform.</p>
-        </div>
-        <div class="tag">
-          <div class="pill"><span class="dot"></span> Tampilan responsif</div>
-          <div class="pill">By: SKYJELY jasun</div>
-        </div>
-      </header>
- 
-      <div class="callout">
-        Saya tidak bisa membantu membuat website yang mempromosikan “suntik” followers/likes/views (manipulasi engagement) karena itu termasuk aktivitas yang menipu dan biasanya melanggar aturan platform.
-        <br /><br />
-        Tapi saya sudah siapkan <strong>template</strong> web yang tampilannya bagus untuk <strong>daftar paket layanan sosmed yang legal</strong> (mis. jasa konten, desain, admin, iklan, audit akun, dll). Kamu tinggal ganti nama paket dan harganya di tabel.
-      </div>
- 
-      <section class="grid" aria-label="Daftar Paket">
-        <!-- CARD 1 -->
-        <article class="card span6">
-          <div class="card-head">
-            <div>
-              <h2>PAKET JASA KONTEN (Contoh)</h2>
-              <p class="sub">By. SKYJELY jasun 🔅</p>
-            </div>
-            <div class="badge"><span class="spark"></span> Layanan Legal</div>
-          </div>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Paket</th>
-                <th>Harga</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="qty">10 Desain Feed</td>
-                <td class="price">Rp 50.000</td>
-              </tr>
-              <tr>
-                <td class="qty">20 Desain Feed</td>
-                <td class="price">Rp 90.000</td>
-              </tr>
-              <tr>
-                <td class="qty">30 Desain Feed</td>
-                <td class="price">Rp 120.000</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="note">
-            <strong>Catatan:</strong> ganti teks ini sesuai ketentuanmu (contoh: “Revisi 2x”, “File PSD/Canva”, dll).
-          </div>
-        </article>
- 
-        <!-- CARD 2 -->
-        <article class="card span6">
-          <div class="card-head">
-            <div>
-              <h2>PAKET ADMIN AKUN (Contoh)</h2>
-              <p class="sub">By. SKYJELY jasun 🔅</p>
-            </div>
-            <div class="badge"><span class="spark"></span> Layanan Legal</div>
-          </div>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Paket</th>
-                <th>Harga</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="qty">Admin 7 Hari</td>
-                <td class="price">Rp 35.000</td>
-              </tr>
-              <tr>
-                <td class="qty">Admin 14 Hari</td>
-                <td class="price">Rp 60.000</td>
-              </tr>
-              <tr>
-                <td class="qty">Admin 30 Hari</td>
-                <td class="price">Rp 110.000</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="note">
-            <strong>Contoh link:</strong> https://www.instagram.com/username
-          </div>
-        </article>
- 
-        <!-- CARD 3 -->
-        <article class="card span6">
-          <div class="card-head">
-            <div>
-              <h2>PAKET IKLAN / ADS (Contoh)</h2>
-              <p class="sub">By. SKYJELY jasun 🔅</p>
-            </div>
-            <div class="badge"><span class="spark"></span> Layanan Legal</div>
-          </div>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Paket</th>
-                <th>Harga</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="qty">Setup Ads + Pixel</td>
-                <td class="price">Rp 75.000</td>
-              </tr>
-              <tr>
-                <td class="qty">Optimasi 7 Hari</td>
-                <td class="price">Rp 120.000</td>
-              </tr>
-              <tr>
-                <td class="qty">Optimasi 30 Hari</td>
-                <td class="price">Rp 350.000</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="note">
-            <strong>Catatan:</strong> budget iklan biasanya terpisah dari fee jasa.
-          </div>
-        </article>
- 
-        <!-- CARD 4 -->
-        <article class="card span6">
-          <div class="card-head">
-            <div>
-              <h2>PAKET AUDIT & STRATEGI (Contoh)</h2>
-              <p class="sub">By. SKYJELY jasun 🔅</p>
-            </div>
-            <div class="badge"><span class="spark"></span> Layanan Legal</div>
-          </div>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Paket</th>
-                <th>Harga</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="qty">Audit Profil + Bio</td>
-                <td class="price">Rp 25.000</td>
-              </tr>
-              <tr>
-                <td class="qty">Audit Konten 30 Hari</td>
-                <td class="price">Rp 60.000</td>
-              </tr>
-              <tr>
-                <td class="qty">Rencana Konten 14 Hari</td>
-                <td class="price">Rp 45.000</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="note">
-            <strong>Output:</strong> bisa berupa PDF / Google Docs (opsional).
-          </div>
-        </article>
-      </section>
- 
-      <footer>
-        © <span id="y"></span> SKYJELY jasun sosmed — template HTML.
-      </footer>
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h1>SKYJELY JASUN SOSMED</h1>
+    <p>Fast Process • Aman • Anti Delay • Trusted Services</p>
+  </div>
+
+  <!-- FOLLOWERS TIKTOK -->
+  <div class="card">
+    <h2>LIST HARGA FOLLOWERS TIKTOK</h2>
+    <div class="by">By. SKYJELY Jasun 🔅</div>
+
+    <ul>
+      <li>50 Followers = 5.000</li>
+      <li>100 Followers = 10.000</li>
+      <li>200 Followers = 21.000</li>
+      <li>300 Followers = 30.000</li>
+      <li>400 Followers = 32.000</li>
+    </ul>
+
+    <div class="note">
+      🌐 Link username TikTok only <br><br>
+      ❗ Harga tidak bisa diubah
     </div>
- 
-    <script>
-      document.getElementById("y").textContent = new Date().getFullYear();
-    <\/script>
-  </body>
+  </div>
+
+  <!-- LIKES TIKTOK -->
+  <div class="card">
+    <h2>LIST HARGA LIKES TIKTOK</h2>
+    <div class="by">By. SKYJELY Jasun 🔅</div>
+
+    <ul>
+      <li>100 Likes = 3.000</li>
+      <li>1000 Likes = 10.000</li>
+      <li>1500 Likes = 15.000</li>
+      <li>2000 Likes = 17.000</li>
+      <li>2500 Likes = 25.000</li>
+      <li>3000 Likes = 30.000</li>
+    </ul>
+
+    <div class="note">
+      🌐 Link video TikTok only <br><br>
+      ❗ Harga tidak bisa diubah
+    </div>
+  </div>
+
+  <!-- VIEWS TIKTOK -->
+  <div class="card">
+    <h2>LIST HARGA VIEWS TIKTOK</h2>
+    <div class="by">By. SKYJELY Jasun 🔅</div>
+
+    <ul>
+      <li>100 Views = 2.000</li>
+      <li>200 Views = 3.000</li>
+      <li>1000 Views = 5.000</li>
+      <li>2500 Views = 7.000</li>
+      <li>3000 Views = 10.000</li>
+      <li>4000 Views = 12.000</li>
+    </ul>
+
+    <div class="note">
+      🌐 Link video TikTok only <br><br>
+      ❗ Ada harga ada kualitas
+    </div>
+  </div>
+
+  <!-- INSTAGRAM FOLLOWERS -->
+  <div class="card">
+    <h2>LIST HARGA INSTAGRAM FOLLOWERS</h2>
+    <div class="by">By. SKYJELY Jasun 🔅</div>
+
+    <ul>
+      <li>100 Followers = 3.000</li>
+      <li>200 Followers = 6.000</li>
+      <li>300 Followers = 8.000</li>
+      <li>400 Followers = 10.000</li>
+    </ul>
+
+    <div class="note">
+      🌐 Link contoh : https://www.instagram.com/username <br><br>
+      ❗ Ada harga ada kualitas
+    </div>
+  </div>
+
+  <!-- INSTAGRAM STORY LIKES -->
+  <div class="card">
+    <h2>LIST HARGA LIKES INSTAGRAM STORY</h2>
+    <div class="by">By. SKYJELY Jasun 🔅</div>
+
+    <ul>
+      <li>100 Likes = 3.000</li>
+      <li>200 Likes = 4.000</li>
+      <li>1000 Likes = 8.000</li>
+      <li>2000 Likes = 13.000</li>
+      <li>3000 Likes = 20.000</li>
+    </ul>
+
+    <div class="note">
+      🌐 Link postingan Instagram only <br><br>
+      https://www.instagram.com/p/CDIDw7IDVAN/
+    </div>
+  </div>
+
+  <!-- WHATSAPP -->
+  <div class="card">
+    <h2>LIST HARGA PENGIKUT SALURAN WHATSAPP</h2>
+    <div class="by">By. SKYJELY Jasun 🔅</div>
+
+    <ul>
+      <li>55 Pengikut = 5.000</li>
+      <li>100 Pengikut = 8.000</li>
+      <li>200 Pengikut = 10.000</li>
+      <li>300 Pengikut = 15.000</li>
+    </ul>
+
+    <div class="note">
+      🌐 Link saluran WhatsApp only
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2026 SKYJELY Jasun Sosmed <br>
+    Fast Process • Trusted • Aman
+  </div>
+
+</div>
+
+</body>
 </html>
- 
