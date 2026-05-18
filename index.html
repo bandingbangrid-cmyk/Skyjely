@@ -2,316 +2,343 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web List Produk (Login Per-User)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SKYJELY jasun sosmed</title>
+    <meta name="description" content="Halaman daftar layanan & harga — SKYJELY jasun sosmed." />
     <style>
       :root{
-        --bg:#0b1020; --card:#111a33; --muted:#98a2b3; --text:#e6e8ee; --accent:#7c5cff; --danger:#ff4d4f;
-        --bg:#0b1020;
-        --card:#111a33;
-        --text:#e6e8ee;
-        --muted:#98a2b3;
-        --border: rgba(255,255,255,.10);
-        --accent:#7c5cff;
-        --danger:#ff4d4f;
+        --bg: #0b1020;
+        --card: rgba(255,255,255,.06);
+        --card2: rgba(255,255,255,.09);
+        --border: rgba(255,255,255,.12);
+        --text: rgba(255,255,255,.92);
+        --muted: rgba(255,255,255,.70);
+        --muted2: rgba(255,255,255,.55);
+        --accent: #7c5cff;
+        --accent2:#2ee5a6;
+        --warn:#ffcc66;
+        --shadow: 0 18px 50px rgba(0,0,0,.35);
+        --radius: 18px;
       }
       *{box-sizing:border-box}
+      html,body{height:100%}
       body{
-        margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
         margin:0;
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
-        background: radial-gradient(1200px 600px at 20% 0%, #18245a 0%, var(--bg) 55%);
-        color:var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        color: var(--text);
+        background:
+          radial-gradient(1000px 600px at 15% 10%, rgba(124,92,255,.35), transparent 55%),
+          radial-gradient(800px 500px at 85% 20%, rgba(46,229,166,.22), transparent 55%),
+          radial-gradient(700px 500px at 50% 90%, rgba(255,204,102,.18), transparent 60%),
+          linear-gradient(180deg, #080b16, var(--bg));
+        line-height: 1.55;
       }
-      .container{max-width:1100px; margin:0 auto; padding:20px;}
-      header{display:flex; gap:12px; align-items:center; justify-content:space-between; margin:8px 0 18px;}
-      header{display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; margin:8px 0 16px;}
-      h1{font-size:20px; margin:0}
-      .tag{font-size:12px; color:var(--muted)}
-      .tag{font-size:12px; color:var(--muted); margin-top:4px; line-height:1.4}
-      .row{display:flex; gap:14px; flex-wrap:wrap}
-      .card{
-        background: rgba(17, 26, 51, .82);
-2 lines hidden
-        border-radius:14px;
-        padding:14px;
+      a{color:inherit}
+      .wrap{max-width:1050px; margin:0 auto; padding:32px 18px 44px}
+      header{
+        display:flex; gap:16px; align-items:flex-start; justify-content:space-between;
+        padding:22px 22px;
+        border:1px solid var(--border);
+        border-radius: var(--radius);
+        background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(10px);
       }
-      .grow{flex:1 1 560px}
-      .side{flex:1 1 320px; min-width:280px}
-      .card h2{font-size:14px; margin:0 0 10px; color:#d5d9e6}
-      .grow{flex:1 1 520px}
-      .side{flex:1 1 320px; min-width:280px}
-      label{display:block; font-size:12px; color:var(--muted); margin:10px 0 6px}
-      input, textarea{
-        width:100%;
-21 lines hidden
-      .btn.danger:hover{background: rgba(255,77,79,.20)}
-      .btn:disabled{opacity:.55; cursor:not-allowed}
-      .btns{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
-      .topbar{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
-      .small{font-size:12px; color:var(--muted); line-height:1.45}
+      .brand h1{
+        margin:0;
+        font-size: 22px;
+        letter-spacing: .2px;
+      }
+      .brand p{
+        margin:6px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .tag{
+        display:flex; flex-direction:column; gap:8px; align-items:flex-end;
+      }
       .pill{
         display:inline-flex; gap:8px; align-items:center;
-        padding:6px 10px; border-radius:999px; border:1px solid var(--border);
-        background: rgba(255,255,255,.06); font-size:12px; color:var(--muted);
-        padding:6px 10px; border-radius:999px;
+        padding:8px 12px;
+        border-radius:999px;
         border:1px solid var(--border);
         background: rgba(255,255,255,.06);
-        font-size:12px; color:var(--muted);
+        color: var(--muted);
+        font-size: 12px;
+        white-space: nowrap;
       }
-      .banner{
-        margin:0 0 10px;
+      .dot{width:8px; height:8px; border-radius:50%; background: var(--accent2); box-shadow: 0 0 0 6px rgba(46,229,166,.12)}
+      .grid{
+        margin-top:18px;
+        display:grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 14px;
+      }
+      .card{
+        grid-column: span 12;
         border:1px solid var(--border);
-        background: rgba(255,255,255,.06);
-        padding:10px 12px;
-        border-radius:12px;
-        display:flex; justify-content:space-between; gap:12px; align-items:flex-start;
+        border-radius: var(--radius);
+        background: rgba(255,255,255,.05);
+        box-shadow: 0 12px 30px rgba(0,0,0,.25);
+        overflow:hidden;
       }
-      .banner strong{display:block; font-size:13px}
-      .banner span{display:block; font-size:12px; color:var(--muted); margin-top:3px}
-      .error{color:#ffd0d0}
-      .success{color:#c6ffd0}
-      .hide{display:none !important}
-      .tableWrap{overflow:auto; border-radius:12px; border:1px solid var(--border)}
-      table{width:100%; border-collapse:collapse; min-width:820px; background: rgba(0,0,0,.10)}
-      th, td{padding:10px 10px; border-bottom:1px solid var(--border); vertical-align:top}
-      th{position:sticky; top:0; background: rgba(9, 13, 28, .98); text-align:left; font-size:12px; color:#cfd5e6}
-      td{font-size:13px}
-      tr:hover td{background: rgba(255,255,255,.04)}
-      .actions{display:flex; gap:8px}
-      .imgThumb{
-        width:44px; height:44px; border-radius:10px; object-fit:cover; border:1px solid var(--border);
-        width:44px; height:44px; border-radius:10px; object-fit:cover;
+      .card-head{
+        display:flex;
+        align-items:flex-start;
+        justify-content:space-between;
+        gap: 10px;
+        padding: 16px 16px 12px;
+        background: linear-gradient(180deg, rgba(255,255,255,.06), transparent);
+      }
+      .card h2{
+        margin:0;
+        font-size: 15px;
+        letter-spacing:.2px;
+      }
+      .sub{
+        margin:6px 0 0;
+        color: var(--muted2);
+        font-size: 12px;
+      }
+      .badge{
+        display:inline-flex; align-items:center; gap:8px;
+        padding:6px 10px;
+        font-size: 12px;
+        color: rgba(255,255,255,.88);
         border:1px solid var(--border);
-        background: rgba(255,255,255,.04);
+        background: rgba(124,92,255,.12);
+        border-radius:999px;
+        white-space:nowrap;
       }
-      .topbar{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
-      .topbar input{max-width:320px}
-      .actions{display:flex; gap:8px}
-      footer{margin-top:16px; color:var(--muted); font-size:12px}
-      code{background: rgba(255,255,255,.08); padding:2px 6px; border-radius:7px; border:1px solid var(--border)}
- 
-      /* Modal */
-      .modalBackdrop{
-        position:fixed; inset:0; background: rgba(0,0,0,.56);
-        display:none; align-items:center; justify-content:center; padding:18px;
-6 lines hidden
-        padding:16px;
+      .badge .spark{
+        width:10px;height:10px;border-radius:3px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
       }
-      .modal header{margin:0 0 10px}
-      .banner{
-        margin:0 0 10px;
-        border:1px solid var(--border);
-        background: rgba(255,255,255,.06);
-        padding:10px 12px;
-        border-radius:12px;
-        display:flex; justify-content:space-between; gap:12px; align-items:flex-start;
+      .table{
+        width:100%;
+        border-collapse: collapse;
       }
-      .banner strong{display:block; font-size:13px}
-      .banner span{display:block; font-size:12px; color:var(--muted); margin-top:3px}
-      .error{color:#ffd0d0}
-      .success{color:#c6ffd0}
-      .muted{color:var(--muted)}
-      .hide{display:none !important}
-      footer{margin-top:16px; color:var(--muted); font-size:12px}
-      code{background: rgba(255,255,255,.08); padding:2px 6px; border-radius:7px; border:1px solid var(--border)}
+      .table th, .table td{
+        padding: 12px 16px;
+        border-top: 1px solid rgba(255,255,255,.08);
+      }
+      .table th{
+        text-align:left;
+        font-size: 12px;
+        letter-spacing: .35px;
+        text-transform: uppercase;
+        color: var(--muted);
+        background: rgba(255,255,255,.03);
+      }
+      .table td{
+        font-size: 14px;
+      }
+      .qty{color: rgba(255,255,255,.9); font-weight: 600;}
+      .price{
+        font-variant-numeric: tabular-nums;
+        font-weight: 700;
+        color: rgba(255,255,255,.95);
+      }
+      .note{
+        padding: 12px 16px 16px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .note strong{color: rgba(255,255,255,.9)}
+      .callout{
+        margin-top: 16px;
+        border:1px solid rgba(255,204,102,.28);
+        background: rgba(255,204,102,.08);
+        border-radius: var(--radius);
+        padding: 14px 16px;
+        color: rgba(255,255,255,.86);
+        font-size: 13px;
+      }
+      footer{
+        margin-top: 18px;
+        color: var(--muted2);
+        font-size: 12px;
+        text-align:center;
+      }
+      @media (min-width: 860px){
+        .card.span6{grid-column: span 6;}
+        .card.span4{grid-column: span 4;}
+      }
     </style>
   </head>
   <body>
-    <div class="container">
+    <div class="wrap">
       <header>
-        <div>
-          <h1>Web List Produk</h1>
-          <div class="tag">Mode: <b>Login per-user</b> (tiap akun hanya bisa lihat & kelola data miliknya sendiri).</div>
-          <div class="tag">
-            Mode: <b>Login per-user</b> (tiap akun hanya bisa lihat & kelola data miliknya sendiri).
-          </div>
+        <div class="brand">
+          <h1>SKYJELY jasun sosmed</h1>
+          <p>Daftar layanan & harga (template HTML). Silakan isi paket yang <strong>legal</strong> dan sesuai aturan platform.</p>
         </div>
-        <div class="topbar">
-          <span class="pill">Status: <span id="statusText">memuat…</span></span>
-13 lines hidden
-      <div class="row">
-        <section class="card side" id="authCard">
-          <h2>Login</h2>
-          <div class="small">
-            Jika pertama kali, klik <b>Daftar</b> (email + password). Setelah itu <b>Masuk</b>.
-          </div>
-          <div class="small">Jika pertama kali, klik <b>Daftar</b> (email + password), lalu <b>Masuk</b>.</div>
+        <div class="tag">
+          <div class="pill"><span class="dot"></span> Tampilan responsif</div>
+          <div class="pill">By: SKYJELY jasun</div>
+        </div>
+      </header>
  
-          <label for="email">Email</label>
-          <input id="email" autocomplete="email" placeholder="nama@email.com" />
-6 lines hidden
-            <button id="btnSignIn" class="btn" type="button">Masuk</button>
-            <button id="btnSignUp" class="btn secondary" type="button">Daftar</button>
-          </div>
-          <div class="small muted" style="margin-top:10px">
-            Aktifkan Email provider di Supabase: Authentication → Providers.
-          <div class="small" style="margin-top:10px">
-            Pastikan Email provider aktif di Supabase: <span class="muted">Authentication → Providers</span>.
-          </div>
-        </section>
- 
-69 lines hidden
-            <button id="btnCancel" class="btn secondary" type="button">Batal</button>
-            <button id="btnDelete" class="btn danger hide" type="button">Hapus</button>
-          </div>
-          <div class="small muted" style="margin-top:10px">
-            Tips: untuk gambar, bisa pakai link CDN / link gambar dari hosting Anda.
-          </div>
-        </section>
+      <div class="callout">
+        Saya tidak bisa membantu membuat website yang mempromosikan “suntik” followers/likes/views (manipulasi engagement) karena itu termasuk aktivitas yang menipu dan biasanya melanggar aturan platform.
+        <br /><br />
+        Tapi saya sudah siapkan <strong>template</strong> web yang tampilannya bagus untuk <strong>daftar paket layanan sosmed yang legal</strong> (mis. jasa konten, desain, admin, iklan, audit akun, dll). Kamu tinggal ganti nama paket dan harganya di tabel.
       </div>
  
+      <section class="grid" aria-label="Daftar Paket">
+        <!-- CARD 1 -->
+        <article class="card span6">
+          <div class="card-head">
+            <div>
+              <h2>PAKET JASA KONTEN (Contoh)</h2>
+              <p class="sub">By. SKYJELY jasun 🔅</p>
+            </div>
+            <div class="badge"><span class="spark"></span> Layanan Legal</div>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Paket</th>
+                <th>Harga</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="qty">10 Desain Feed</td>
+                <td class="price">Rp 50.000</td>
+              </tr>
+              <tr>
+                <td class="qty">20 Desain Feed</td>
+                <td class="price">Rp 90.000</td>
+              </tr>
+              <tr>
+                <td class="qty">30 Desain Feed</td>
+                <td class="price">Rp 120.000</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="note">
+            <strong>Catatan:</strong> ganti teks ini sesuai ketentuanmu (contoh: “Revisi 2x”, “File PSD/Canva”, dll).
+          </div>
+        </article>
+ 
+        <!-- CARD 2 -->
+        <article class="card span6">
+          <div class="card-head">
+            <div>
+              <h2>PAKET ADMIN AKUN (Contoh)</h2>
+              <p class="sub">By. SKYJELY jasun 🔅</p>
+            </div>
+            <div class="badge"><span class="spark"></span> Layanan Legal</div>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Paket</th>
+                <th>Harga</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="qty">Admin 7 Hari</td>
+                <td class="price">Rp 35.000</td>
+              </tr>
+              <tr>
+                <td class="qty">Admin 14 Hari</td>
+                <td class="price">Rp 60.000</td>
+              </tr>
+              <tr>
+                <td class="qty">Admin 30 Hari</td>
+                <td class="price">Rp 110.000</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="note">
+            <strong>Contoh link:</strong> https://www.instagram.com/username
+          </div>
+        </article>
+ 
+        <!-- CARD 3 -->
+        <article class="card span6">
+          <div class="card-head">
+            <div>
+              <h2>PAKET IKLAN / ADS (Contoh)</h2>
+              <p class="sub">By. SKYJELY jasun 🔅</p>
+            </div>
+            <div class="badge"><span class="spark"></span> Layanan Legal</div>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Paket</th>
+                <th>Harga</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="qty">Setup Ads + Pixel</td>
+                <td class="price">Rp 75.000</td>
+              </tr>
+              <tr>
+                <td class="qty">Optimasi 7 Hari</td>
+                <td class="price">Rp 120.000</td>
+              </tr>
+              <tr>
+                <td class="qty">Optimasi 30 Hari</td>
+                <td class="price">Rp 350.000</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="note">
+            <strong>Catatan:</strong> budget iklan biasanya terpisah dari fee jasa.
+          </div>
+        </article>
+ 
+        <!-- CARD 4 -->
+        <article class="card span6">
+          <div class="card-head">
+            <div>
+              <h2>PAKET AUDIT & STRATEGI (Contoh)</h2>
+              <p class="sub">By. SKYJELY jasun 🔅</p>
+            </div>
+            <div class="badge"><span class="spark"></span> Layanan Legal</div>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Paket</th>
+                <th>Harga</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="qty">Audit Profil + Bio</td>
+                <td class="price">Rp 25.000</td>
+              </tr>
+              <tr>
+                <td class="qty">Audit Konten 30 Hari</td>
+                <td class="price">Rp 60.000</td>
+              </tr>
+              <tr>
+                <td class="qty">Rencana Konten 14 Hari</td>
+                <td class="price">Rp 45.000</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="note">
+            <strong>Output:</strong> bisa berupa PDF / Google Docs (opsional).
+          </div>
+        </article>
+      </section>
+ 
       <footer>
-        Pastikan Anda sudah menjalankan <code>supabase.sql</code> (tabel + RLS per-user).
-        Wajib: jalankan <code>supabase.sql</code> di Supabase (tabel + RLS per-user).
+        © <span id="y"></span> SKYJELY jasun sosmed — template HTML.
       </footer>
     </div>
  
-    <!-- Config Modal -->
-    <!-- Modal: Config Supabase -->
-    <div class="modalBackdrop" id="configBackdrop" role="dialog" aria-modal="true">
-      <div class="modal">
-        <header>
-          <h2 style="margin:0; font-size:16px">Pengaturan Supabase</h2>
-          <div class="small">Isi sekali, nanti tersimpan di browser Anda (LocalStorage).</div>
-          <div class="small">Isi sekali, tersimpan di browser (LocalStorage).</div>
-        </header>
- 
-        <label for="sbUrl">Supabase Project URL</label>
-        <input id="sbUrl" placeholder="https://xxxx.supabase.co" />
-        <label for="sbKey">Supabase Anon Public Key</label>
-        <textarea id="sbKey" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…"></textarea>
- 
-        <div class="small muted" style="margin-top:8px">
-          Keamanan: gunakan <b>Anon public key</b>, bukan service_role key.
-          Gunakan <b>Anon public key</b> (jangan service_role).
-        </div>
- 
-        <div style="height:12px"></div>
-        <div class="btns">
-          <button id="btnSaveConfig" class="btn" type="button">Simpan Pengaturan</button>
-          <button id="btnSaveConfig" class="btn" type="button">Simpan</button>
-          <button id="btnCloseConfig" class="btn secondary" type="button">Tutup</button>
-          <button id="btnResetConfig" class="btn danger" type="button">Reset</button>
-        </div>
-3 lines hidden
-    <script type="module">
-      import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
- 
-      const LS_KEY = "weblist_produk_supabase_login_config_v4";
-      const LS_KEY = "weblist_produk_supabase_login_config_v5";
- 
-      const el = (id) => document.getElementById(id);
-      const statusText = el("statusText");
-52 lines hidden
-      el("btnBannerClose").addEventListener("click", hideBanner);
- 
-      function setStatus(text){ statusText.textContent = text; }
- 
-      function openConfig(){ configBackdrop.style.display = "flex"; }
-      function closeConfig(){ configBackdrop.style.display = "none"; }
- 
-5 lines hidden
-        localStorage.removeItem(LS_KEY);
-        supabase = null;
-        session = null;
-        products = [];
-        setStatus("butuh pengaturan");
-        renderLoggedOut();
-        showBanner("info", "Reset", "Pengaturan dihapus. Silakan isi ulang Supabase URL & Anon Key.");
-        openConfig();
-        renderLoggedOut();
-      });
- 
-      btnSaveConfig.addEventListener("click", async () => {
-17 lines hidden
-          return null;
-        }catch{ return null; }
-      }
- 
-      function loadConfigToForm(){
-        const cfg = loadConfig();
-        sbUrlInput.value = cfg?.url || "";
-        sbKeyInput.value = cfg?.key || "";
-      }
- 
-      function escapeHtml(str){
-        return (str ?? "").toString()
-          .replaceAll("&","&amp;")
-          .replaceAll("<","&lt;")
-          .replaceAll(">","&gt;")
-          .replaceAll('"',"&quot;")
-          .replaceAll("'","&#039;");
-      }
- 
-      function fmtNumber(n){
-        if(n === null || n === undefined || n === "") return "";
-        const x = Number(n);
-        if(Number.isNaN(x)) return String(n);
-        return new Intl.NumberFormat("id-ID").format(x);
-      }
- 
-      function parseNumberOrNull(str){
-        const s = (str ?? "").toString().trim();
-        if(!s) return null;
-        const normalized = s.replaceAll(".", "").replaceAll(",", ".");
-        const x = Number(normalized);
-        return Number.isFinite(x) ? x : null;
-      }
- 
-      function parseIntOrNull(str){
-        const s = (str ?? "").toString().trim();
-        if(!s) return null;
-        const x = Number(s);
-        if(!Number.isFinite(x)) return null;
-        return Math.trunc(x);
-      }
-      function escapeHtml(str){
-        return (str ?? "").toString()
-          .replaceAll("&","&amp;")
-          .replaceAll("<","&lt;")
-          .replaceAll(">","&gt;")
-          .replaceAll('"',"&quot;")
-          .replaceAll("'","&#039;");
-      }
- 
-      async function initSupabase(){
-        hideBanner();
-109 lines hidden
-            .from("products")
-            .select("id, created_at, name, price, category, stock, image_url, notes")
-            .order("created_at", { ascending: false });
- 
-          if(error) throw error;
-          products = data || [];
-          renderTable();
-        }catch(err){
-          tbody.innerHTML = `<tr><td colspan="7" class="error">Gagal memuat: ${escapeHtml(err?.message || String(err))}</td></tr>`;
-          showBanner("error", "Gagal memuat data", (err?.message || String(err)) + " (Pastikan tabel & RLS sudah dibuat dari supabase.sql)");
-          const msg = (err?.message || String(err));
-          tbody.innerHTML = `<tr><td colspan="7" class="error">Gagal memuat: ${escapeHtml(msg)}</td></tr>`;
-          showBanner("error", "Gagal memuat data", msg + " (Pastikan supabase.sql sudah dijalankan)");
-        }
-      }
- 
-13 lines hidden
-          tbody.innerHTML = `<tr><td colspan="7" class="muted">Belum ada data.</td></tr>`;
-          return;
-        }
- 
-        tbody.innerHTML = filtered.map(p => `
-          <tr>
-            <td>${p.image_url ? `<img class="imgThumb" src="${escapeHtml(p.image_url)}" alt="img" loading="lazy" />` : `<div class="imgThumb"></div>`}</td>
-22 lines hidden
-      }
- 
-      btnNew.addEventListener("click", () => openNew());
-      btnCancel.addEventListener("click", () => { formCard.classList.add("hide"); });
-      btnCancel.addEventListener("click", () => formCard.classList.add("hide"));
- 
-      function openNew(){
-        formTitle.textContent = "Produk Baru";
-85 lines hidden
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
     <\/script>
   </body>
 </html>
+ 
