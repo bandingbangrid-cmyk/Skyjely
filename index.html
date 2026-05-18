@@ -1,112 +1,215 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SKYJELY Jasun Sosmed</title>
+export default function SkyJelySMM() { const services = [ { title: "Followers TikTok", items: [ "50 Followers — 5K", "100 Followers — 10K", "200 Followers — 21K", "300 Followers — 30K", "400 Followers — 32K", ], }, { title: "Likes TikTok", items: [ "100 Likes — 3K", "1000 Likes — 10K", "1500 Likes — 15K", "2000 Likes — 17K", "2500 Likes — 25K", "3000 Likes — 30K", ], }, { title: "Views TikTok", items: [ "100 Views — 2K", "200 Views — 3K", "1000 Views — 5K", "2500 Views — 7K", "3000 Views — 10K", "4000 Views — 12K", ], }, { title: "Instagram Followers", items: [ "100 Followers — 3K", "200 Followers — 6K", "300 Followers — 8K", "400 Followers — 10K", ], }, { title: "Instagram Story Likes", items: [ "100 Likes — 3K", "200 Likes — 4K", "1000 Likes — 8K", "2000 Likes — 13K", "3000 Likes — 20K", ], }, { title: "Pengikut Saluran WhatsApp", items: [ "55 Pengikut — 5K", "100 Pengikut — 8K", "200 Pengikut — 10K", "300 Pengikut — 15K", ], }, ];
 
-  <style>
-    body{
-      background:#0f172a;
-      color:white;
-      font-family:Arial;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-    }
+return ( <div className="min-h-screen bg-black text-white"> <div className="bg-gradient-to-br from-sky-500/20 via-black to-cyan-500/10 min-h-screen"> <header className="border-b border-white/10 backdrop-blur-md sticky top-0 z-50 bg-black/40"> <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"> <h1 className="text-2xl md:text-3xl font-black text-cyan-400 tracking-wider"> SKYJELY JASUN SOSMED </h1>
 
-    .box{
-      background:#111827;
-      padding:30px;
-      border-radius:20px;
-      width:350px;
-    }
+<div className="flex gap-3">
+          <button className="px-5 py-2 rounded-xl bg-cyan-400 text-black font-bold hover:scale-105 transition-all">
+            Login
+          </button>
 
-    h1{
-      text-align:center;
-      color:#38bdf8;
-    }
+          <button className="px-5 py-2 rounded-xl border border-cyan-400 text-cyan-400 font-bold hover:bg-cyan-400 hover:text-black transition-all">
+            Register
+          </button>
+        </div>
+      </div>
+    </header>
 
-    select,input,button{
-      width:100%;
-      padding:12px;
-      margin-top:12px;
-      border:none;
-      border-radius:10px;
-    }
+    <section className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 className="text-5xl md:text-7xl font-black leading-tight">
+          PANEL <span className="text-cyan-400">SMM</span> MODERN
+        </h2>
 
-    button{
-      background:#38bdf8;
-      font-weight:bold;
-      cursor:pointer;
-    }
+        <p className="mt-6 text-gray-300 text-lg leading-relaxed">
+          Fast Process • Trusted • Anti Delay • Cheap Price • Auto Order API
+        </p>
 
-    #result{
-      margin-top:15px;
-      color:#22c55e;
-    }
-  </style>
-</head>
-<body>
+        <div className="flex gap-4 mt-8 flex-wrap">
+          <button className="px-7 py-4 rounded-2xl bg-cyan-400 text-black font-bold hover:scale-105 transition-all shadow-lg shadow-cyan-500/30">
+            ORDER SEKARANG
+          </button>
 
-<div class="box">
-  <h1>SKYJELY JASUN</h1>
+          <button className="px-7 py-4 rounded-2xl border border-white/20 hover:bg-white/10 transition-all">
+            DEPOSIT SALDO
+          </button>
+        </div>
+      </div>
 
-  <select id="service">
-    <option value="1">Followers TikTok</option>
-    <option value="2">Likes TikTok</option>
-    <option value="3">Views TikTok</option>
-  </select>
+      <div className="relative">
+        <div className="absolute inset-0 blur-3xl bg-cyan-500/20 rounded-full"></div>
 
-  <input type="text" id="link" placeholder="Masukkan Link">
+        <div className="relative bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl shadow-2xl">
+          <h3 className="text-2xl font-bold text-cyan-400 mb-6">
+            AUTO ORDER PANEL
+          </h3>
 
-  <input type="number" id="qty" placeholder="Jumlah">
+          <div className="space-y-4">
+            <input
+              type="text"
+              placeholder="Masukkan Link"
+              className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-cyan-400"
+            />
 
-  <button onclick="orderNow()">ORDER SEKARANG</button>
+            <select className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-cyan-400">
+              <option>Followers TikTok</option>
+              <option>Likes TikTok</option>
+              <option>Views TikTok</option>
+              <option>Instagram Followers</option>
+            </select>
 
-  <div id="result"></div>
+            <input
+              type="number"
+              placeholder="Jumlah Order"
+              className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-cyan-400"
+            />
+
+            <button className="w-full bg-cyan-400 text-black font-black py-4 rounded-xl hover:scale-[1.02] transition-all shadow-lg shadow-cyan-500/30">
+              PROCESS ORDER
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="max-w-7xl mx-auto px-6 py-10">
+      <div className="grid md:grid-cols-3 gap-6">
+        <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+          <h3 className="text-3xl font-black text-cyan-400">1000+</h3>
+          <p className="text-gray-300 mt-2">Order Selesai</p>
+        </div>
+
+        <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+          <h3 className="text-3xl font-black text-cyan-400">FAST</h3>
+          <p className="text-gray-300 mt-2">Proses Super Cepat</p>
+        </div>
+
+        <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+          <h3 className="text-3xl font-black text-cyan-400">24/7</h3>
+          <p className="text-gray-300 mt-2">Online Setiap Hari</p>
+        </div>
+      </div>
+    </section>
+
+    <section className="max-w-7xl mx-auto px-6 py-20">
+      <div className="flex items-center justify-between mb-10 flex-wrap gap-4">
+        <div>
+          <h2 className="text-4xl font-black">
+            LIST <span className="text-cyan-400">LAYANAN</span>
+          </h2>
+          <p className="text-gray-400 mt-2">
+            Harga murah dan kualitas premium.
+          </p>
+        </div>
+
+        <input
+          placeholder="Cari layanan..."
+          className="bg-white/5 border border-white/10 rounded-xl px-5 py-3 outline-none"
+        />
+      </div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className="bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-cyan-400 transition-all hover:-translate-y-2 backdrop-blur-xl"
+          >
+            <h3 className="text-2xl font-bold text-cyan-400 mb-5">
+              {service.title}
+            </h3>
+
+            <div className="space-y-3">
+              {service.items.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-black/30 rounded-xl px-4 py-3 border border-white/5"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+
+            <button className="w-full mt-6 bg-cyan-400 text-black font-bold py-3 rounded-xl hover:scale-105 transition-all">
+              ORDER NOW
+            </button>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section className="max-w-7xl mx-auto px-6 py-20">
+      <div className="bg-white/5 border border-white/10 rounded-[35px] p-10 backdrop-blur-xl grid md:grid-cols-2 gap-10">
+        <div>
+          <h2 className="text-4xl font-black">
+            DEPOSIT <span className="text-cyan-400">SALDO</span>
+          </h2>
+
+          <p className="text-gray-400 mt-4 leading-relaxed">
+            Deposit saldo otomatis menggunakan DANA, SeaBank, dan QRIS.
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          <input
+            type="text"
+            placeholder="Nama Lengkap"
+            className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 outline-none"
+          />
+
+          <input
+            type="number"
+            placeholder="Jumlah Deposit"
+            className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 outline-none"
+          />
+
+          <select className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 outline-none">
+            <option>DANA</option>
+            <option>SeaBank</option>
+            <option>QRIS</option>
+          </select>
+
+          <button className="w-full bg-cyan-400 text-black font-black py-4 rounded-xl hover:scale-[1.02] transition-all shadow-lg shadow-cyan-500/30">
+            DEPOSIT SEKARANG
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer className="border-t border-white/10 mt-10">
+      <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between gap-6">
+        <div>
+          <h3 className="text-2xl font-black text-cyan-400">
+            SKYJELY JASUN
+          </h3>
+
+          <p className="text-gray-400 mt-3 max-w-md">
+            Website panel sosial media modern dengan sistem auto order dan tampilan premium.
+          </p>
+        </div>
+
+        <div>
+          <h4 className="font-bold text-lg mb-3">PAYMENT</h4>
+          <div className="space-y-2 text-gray-400">
+            <p>DANA</p>
+            <p>SeaBank</p>
+            <p>QRIS</p>
+          </div>
+        </div>
+
+        <div>
+          <h4 className="font-bold text-lg mb-3">CONTACT</h4>
+          <div className="space-y-2 text-gray-400">
+            <p>WhatsApp Admin</p>
+            <p>Instagram SKYJELY</p>
+            <p>TikTok SKYJELY</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="text-center border-t border-white/10 py-6 text-gray-500">
+        © 2026 SKYJELY JASUN SOSMED — All Rights Reserved.
+      </div>
+    </footer>
+  </div>
 </div>
 
-<script>
-async function orderNow(){
-
-  const service = document.getElementById("service").value;
-  const link = document.getElementById("link").value;
-  const qty = document.getElementById("qty").value;
-
-  const api_key = "MASUKKAN_API_BARU_KAMU";
-  const api_url = "https://domainpanelkamu.com/api/v2";
-
-  const data = new URLSearchParams();
-  data.append("key", api_key);
-  data.append("action", "add");
-  data.append("service", service);
-  data.append("link", link);
-  data.append("quantity", qty);
-
-  try{
-
-    const response = await fetch(api_url,{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/x-www-form-urlencoded"
-      },
-      body:data
-    });
-
-    const result = await response.json();
-
-    document.getElementById("result").innerHTML =
-      "Order berhasil! ID : " + result.order;
-
-  }catch(err){
-
-    document.getElementById("result").innerHTML =
-      "Order gagal!";
-  }
-}
-</script>
-
-</body>
-</html>
+); }
