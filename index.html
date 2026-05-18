@@ -16,6 +16,8 @@
       --primary: #6C63FF;
       --primary-fg: #fff;
       --radius: 16px;
+      --green: #10b981;
+      --green-light: #6ee7b7;
     }
 
     body {
@@ -82,6 +84,12 @@
       color: var(--muted);
       margin-top: 6px;
     }
+    .hero-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
     .hero-stats {
       display: flex;
       gap: 12px;
@@ -103,6 +111,24 @@
       letter-spacing: .1em;
       color: var(--muted);
       margin-top: 2px;
+    }
+    .hero-wa-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: rgba(16,185,129,0.15);
+      border: 1px solid rgba(16,185,129,0.35);
+      color: var(--green-light);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .hero-wa-btn:hover {
+      background: rgba(16,185,129,0.25);
+      border-color: rgba(16,185,129,0.55);
     }
 
     /* ── Filter ── */
@@ -262,8 +288,37 @@
       font-weight: 700;
       font-family: 'Courier New', monospace;
     }
+
+    /* ── WhatsApp Order Button ── */
+    .wa-order-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 4px 16px 12px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: rgba(16,185,129,0.12);
+      border: 1px solid rgba(16,185,129,0.28);
+      color: var(--green-light);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .wa-order-btn:hover {
+      background: rgba(16,185,129,0.22);
+      border-color: rgba(16,185,129,0.5);
+    }
+    .wa-order-btn .arrow {
+      font-size: 11px;
+      opacity: .6;
+      transition: opacity .2s;
+    }
+    .wa-order-btn:hover .arrow { opacity: 1; }
+
     .card-footer {
-      padding: 8px 20px 16px;
+      padding: 4px 20px 14px;
       text-align: center;
       font-size: 10px;
       font-weight: 500;
@@ -280,12 +335,204 @@
     .bottom-note .line { flex: 1; height: 1px; background: var(--border); }
     .bottom-note span { font-size: 11px; color: var(--muted); white-space: nowrap; }
 
+    /* ── Testimoni Section ── */
+    .section-header {
+      position: relative;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(16,185,129,0.1) 0%, #09090b 50%, rgba(108,99,255,0.1) 100%);
+      padding: 24px 28px;
+    }
+    .section-header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .section-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(16,185,129,0.9);
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.25);
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+    .section-header h2 {
+      font-size: clamp(20px, 4vw, 28px);
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+    .section-header p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .channel-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      background: rgba(16,185,129,0.15);
+      border: 1px solid rgba(16,185,129,0.35);
+      color: var(--green-light);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all .2s;
+    }
+    .channel-btn:hover {
+      background: rgba(16,185,129,0.25);
+      border-color: rgba(16,185,129,0.55);
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 16px;
+    }
+    .testi-card {
+      position: relative;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--card);
+      padding: 20px;
+      transition: transform .3s;
+      overflow: hidden;
+    }
+    .testi-card:hover { transform: translateY(-3px); }
+    .testi-quote {
+      position: absolute;
+      top: 12px; right: 16px;
+      font-size: 48px;
+      color: rgba(16,185,129,0.08);
+      font-family: Georgia, serif;
+      line-height: 1;
+      user-select: none;
+    }
+    .testi-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 10px;
+    }
+    .testi-stars span {
+      color: #f59e0b;
+      font-size: 13px;
+    }
+    .testi-text {
+      font-size: 13px;
+      color: rgba(244,244,245,0.8);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .testi-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .testi-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(16,185,129,0.12);
+      border: 1px solid rgba(16,185,129,0.28);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+    .testi-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--fg);
+    }
+    .testi-service {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+    .testi-verified {
+      font-size: 9px;
+      font-weight: 700;
+      color: rgba(16,185,129,0.7);
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.2);
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+
+    /* ── Channel CTA ── */
+    .channel-cta {
+      position: relative;
+      border-radius: var(--radius);
+      border: 1px solid rgba(16,185,129,0.2);
+      overflow: hidden;
+      background: linear-gradient(90deg, rgba(16,185,129,0.08), rgba(16,185,129,0.04), rgba(16,185,129,0.08));
+      padding: 20px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .channel-cta-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .channel-cta-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: rgba(16,185,129,0.15);
+      border: 1px solid rgba(16,185,129,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .channel-cta-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--fg);
+    }
+    .channel-cta-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .channel-cta-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 24px;
+      border-radius: 12px;
+      background: var(--green);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background .2s;
+      box-shadow: 0 4px 18px rgba(16,185,129,0.25);
+    }
+    .channel-cta-btn:hover { background: #059669; }
+
     /* ── Hidden cards (filter) ── */
     .card[data-platform].hidden { display: none; }
 
     @media (max-width: 520px) {
       .hero-stats { display: none; }
       .grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -300,9 +547,14 @@
         <h1>List Harga</h1>
         <p>Daftar harga layanan sosial media terpercaya</p>
       </div>
-      <div class="hero-stats">
-        <div class="stat-box"><div class="num">6</div><div class="lbl">Layanan</div></div>
-        <div class="stat-box"><div class="num">3</div><div class="lbl">Platform</div></div>
+      <div class="hero-right">
+        <div class="hero-stats">
+          <div class="stat-box"><div class="num">6</div><div class="lbl">Layanan</div></div>
+          <div class="stat-box"><div class="num">3</div><div class="lbl">Platform</div></div>
+        </div>
+        <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20layanan%20%F0%9F%99%8F" target="_blank" class="hero-wa-btn">
+          💬 Order via WA
+        </a>
       </div>
     </div>
   </div>
@@ -342,6 +594,7 @@
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3);color:#f9a8d4">4</div><span class="row-qty">300 Followers</span></div><span class="row-price" style="color:#f9a8d4">Rp 30.000</span></div>
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3);color:#f9a8d4">5</div><span class="row-qty">400 Followers</span></div><span class="row-price" style="color:#f9a8d4">Rp 32.000</span></div>
       </div>
+      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20TikTok%20Followers%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">💬 Order via WhatsApp <span class="arrow">→</span></a>
       <div class="card-footer" style="color:#f9a8d4">skyjely 🔅</div>
     </div>
 
@@ -370,6 +623,7 @@
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(192,38,211,0.15);border-color:rgba(192,38,211,0.3);color:#e879f9">5</div><span class="row-qty">2.500 Likes</span></div><span class="row-price" style="color:#e879f9">Rp 25.000</span></div>
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(192,38,211,0.15);border-color:rgba(192,38,211,0.3);color:#e879f9">6</div><span class="row-qty">3.000 Likes</span></div><span class="row-price" style="color:#e879f9">Rp 30.000</span></div>
       </div>
+      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20TikTok%20Likes%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">💬 Order via WhatsApp <span class="arrow">→</span></a>
       <div class="card-footer" style="color:#e879f9">skyjely 🔅</div>
     </div>
 
@@ -398,6 +652,7 @@
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3);color:#c4b5fd">5</div><span class="row-qty">3.000 Views</span></div><span class="row-price" style="color:#c4b5fd">Rp 10.000</span></div>
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3);color:#c4b5fd">6</div><span class="row-qty">4.000 Views</span></div><span class="row-price" style="color:#c4b5fd">Rp 12.000</span></div>
       </div>
+      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20TikTok%20Views%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">💬 Order via WhatsApp <span class="arrow">→</span></a>
       <div class="card-footer" style="color:#c4b5fd">skyjely 🔅</div>
     </div>
 
@@ -424,6 +679,7 @@
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.3);color:#fdba74">3</div><span class="row-qty">300 Followers</span></div><span class="row-price" style="color:#fdba74">Rp 8.000</span></div>
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.3);color:#fdba74">4</div><span class="row-qty">400 Followers</span></div><span class="row-price" style="color:#fdba74">Rp 10.000</span></div>
       </div>
+      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20Instagram%20Followers%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">💬 Order via WhatsApp <span class="arrow">→</span></a>
       <div class="card-footer" style="color:#fdba74">skyjely 🔅</div>
     </div>
 
@@ -450,6 +706,7 @@
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3);color:#fcd34d">4</div><span class="row-qty">2.000 Likes</span></div><span class="row-price" style="color:#fcd34d">Rp 13.000</span></div>
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3);color:#fcd34d">5</div><span class="row-qty">3.000 Likes</span></div><span class="row-price" style="color:#fcd34d">Rp 20.000</span></div>
       </div>
+      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20Instagram%20Likes%20Story%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">💬 Order via WhatsApp <span class="arrow">→</span></a>
       <div class="card-footer" style="color:#fcd34d">skyjely 🔅</div>
     </div>
 
@@ -475,6 +732,7 @@
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3);color:#6ee7b7">3</div><span class="row-qty">200 Pengikut</span></div><span class="row-price" style="color:#6ee7b7">Rp 10.000</span></div>
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3);color:#6ee7b7">4</div><span class="row-qty">300 Pengikut</span></div><span class="row-price" style="color:#6ee7b7">Rp 15.000</span></div>
       </div>
+      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20WhatsApp%20Pengikut%20Saluran%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">💬 Order via WhatsApp <span class="arrow">→</span></a>
       <div class="card-footer" style="color:#6ee7b7">skyjely 🔅</div>
     </div>
 
@@ -485,6 +743,115 @@
     <div class="line"></div>
     <span>By. SkyJely jasun 🔅 — Ada Harga Ada Kualitas</span>
     <div class="line"></div>
+  </div>
+
+  <!-- ══ TESTIMONI SECTION ══ -->
+
+  <!-- Section Header -->
+  <div class="section-header">
+    <div class="section-header-inner">
+      <div>
+        <div class="section-badge">⭐ Testimoni Pelanggan</div>
+        <h2>Apa Kata Mereka?</h2>
+        <p>Testimoni nyata dari pelanggan setia SkyJely jasun 🔅</p>
+      </div>
+      <a href="https://whatsapp.com/channel/0029VbCalXKFcow3aBOLdp3y" target="_blank" class="channel-btn">💬 Lihat Channel WA</a>
+    </div>
+  </div>
+
+  <!-- Testimonial Cards -->
+  <div class="testi-grid">
+
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">Pelayanan cepat dan ramah! Followers TikTok saya naik drastis dalam hitungan jam. Recommended banget!</p>
+      <div class="testi-footer">
+        <div class="testi-author">
+          <div class="testi-avatar">🧑</div>
+          <div><div class="testi-name">Andi R.</div><div class="testi-service">TikTok Followers</div></div>
+        </div>
+        <span class="testi-verified">Verified ✓</span>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">Harga terjangkau, kualitas terjamin. Likes Instagram story saya langsung melonjak. Terima kasih SkyJely!</p>
+      <div class="testi-footer">
+        <div class="testi-author">
+          <div class="testi-avatar">👩</div>
+          <div><div class="testi-name">Siti M.</div><div class="testi-service">Instagram Likes Story</div></div>
+        </div>
+        <span class="testi-verified">Verified ✓</span>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">Sudah 3x order, selalu puas. Views TikTok bertambah cepat dan tidak drop. Mantap jiwa!</p>
+      <div class="testi-footer">
+        <div class="testi-author">
+          <div class="testi-avatar">👨</div>
+          <div><div class="testi-name">Budi S.</div><div class="testi-service">TikTok Views</div></div>
+        </div>
+        <span class="testi-verified">Verified ✓</span>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">Pengikut saluran WhatsApp saya bertambah signifikan. Proses mudah, tinggal chat WA langsung diproses.</p>
+      <div class="testi-footer">
+        <div class="testi-author">
+          <div class="testi-avatar">👩‍💼</div>
+          <div><div class="testi-name">Dewi K.</div><div class="testi-service">WhatsApp Saluran</div></div>
+        </div>
+        <span class="testi-verified">Verified ✓</span>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">Awalnya ragu, tapi setelah coba ternyata legit! Followers Instagram naik dan akun aman. Top!</p>
+      <div class="testi-footer">
+        <div class="testi-author">
+          <div class="testi-avatar">🧑‍💻</div>
+          <div><div class="testi-name">Rizky F.</div><div class="testi-service">Instagram Followers</div></div>
+        </div>
+        <span class="testi-verified">Verified ✓</span>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="testi-text">Respon admin super cepat via WhatsApp. Order diproses dalam menit. Pasti balik lagi order!</p>
+      <div class="testi-footer">
+        <div class="testi-author">
+          <div class="testi-avatar">👩‍🎤</div>
+          <div><div class="testi-name">Maya L.</div><div class="testi-service">TikTok Likes</div></div>
+        </div>
+        <span class="testi-verified">Verified ✓</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Channel CTA -->
+  <div class="channel-cta">
+    <div class="channel-cta-left">
+      <div class="channel-cta-icon">💬</div>
+      <div>
+        <div class="channel-cta-title">Ikuti Channel WhatsApp SkyJely jasun</div>
+        <div class="channel-cta-sub">Dapatkan update harga &amp; promo terbaru langsung di WA kamu</div>
+      </div>
+    </div>
+    <a href="https://whatsapp.com/channel/0029VbCalXKFcow3aBOLdp3y" target="_blank" class="channel-cta-btn">Gabung Sekarang →</a>
   </div>
 
 </div>
