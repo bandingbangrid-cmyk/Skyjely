@@ -1,433 +1,506 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SKYJELY JASUN SOSMED</title>  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial,sans-serif;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>List Harga — SkyJely jasun 🔅</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #09090b;
+      --card: #111113;
+      --border: rgba(255,255,255,0.08);
+      --fg: #f4f4f5;
+      --muted: #71717a;
+      --primary: #6C63FF;
+      --primary-fg: #fff;
+      --radius: 16px;
     }
 
-    body{
-      background:#020617;
-      color:white;
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+      padding: 24px 16px 48px;
     }
 
-    header{
-      background:#0f172a;
-      padding:20px;
-      position:sticky;
-      top:0;
-      z-index:100;
-      border-bottom:1px solid rgba(255,255,255,0.1);
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
     }
 
-    .navbar{
-      max-width:1200px;
-      margin:auto;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:15px;
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(108,99,255,0.18) 0%, #09090b 50%, rgba(34,211,238,0.08) 100%);
+      padding: 32px 28px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at top left, rgba(108,99,255,0.14), transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(108,99,255,0.9);
+      background: rgba(108,99,255,0.1);
+      border: 1px solid rgba(108,99,255,0.25);
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .hero h1 {
+      font-size: clamp(26px, 5vw, 38px);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      line-height: 1.15;
+    }
+    .hero p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 12px;
+    }
+    .stat-box {
+      text-align: center;
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+    }
+    .stat-box .num {
+      font-size: 22px;
+      font-weight: 800;
+    }
+    .stat-box .lbl {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--muted);
+      margin-top: 2px;
     }
 
-    .logo{
-      font-size:30px;
-      font-weight:bold;
-      color:#38bdf8;
-      text-shadow:0 0 15px #38bdf8;
+    /* ── Filter ── */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .filter-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-btn:hover {
+      border-color: rgba(108,99,255,0.4);
+      color: var(--fg);
+    }
+    .filter-btn.active {
+      background: var(--primary);
+      color: var(--primary-fg);
+      border-color: var(--primary);
+      box-shadow: 0 4px 18px rgba(108,99,255,0.3);
     }
 
-    .nav-btn{
-      display:flex;
-      gap:10px;
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
     }
 
-    .nav-btn button{
-      padding:12px 20px;
-      border:none;
-      border-radius:12px;
-      cursor:pointer;
-      font-weight:bold;
-      transition:0.3s;
+    /* ── Card ── */
+    .card {
+      position: relative;
+      border-radius: var(--radius);
+      border: 1px solid;
+      overflow: hidden;
+      transition: transform .3s;
+    }
+    .card:hover { transform: translateY(-4px); }
+    .card-top-line {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      opacity: .7;
+    }
+    .card-header {
+      padding: 20px 20px 16px;
+    }
+    .card-meta {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .card-left { flex: 1; min-width: 0; }
+    .card-icon-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .icon-box {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+      border: 1px solid;
+    }
+    .platform-badge {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid;
+    }
+    .card-title {
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .card-link {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .note-badge {
+      flex-shrink: 0;
+      font-size: 9px;
+      font-weight: 700;
+      color: #f87171;
+      border: 1px solid rgba(239,68,68,0.35);
+      background: rgba(239,68,68,0.1);
+      padding: 5px 8px;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 1.4;
+      max-width: 76px;
+    }
+    .divider {
+      height: 1px;
+      margin: 0 20px;
+      opacity: .45;
+    }
+    .price-list {
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.04);
+      transition: background .15s;
+    }
+    .price-row:hover { background: rgba(255,255,255,0.07); }
+    .price-row-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .row-num {
+      width: 20px; height: 20px;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px;
+      font-weight: 700;
+      border: 1px solid;
+      opacity: .7;
+    }
+    .row-qty {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(244,244,245,0.9);
+    }
+    .row-price {
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'Courier New', monospace;
+    }
+    .card-footer {
+      padding: 8px 20px 16px;
+      text-align: center;
+      font-size: 10px;
+      font-weight: 500;
+      opacity: .45;
     }
 
-    .login{
-      background:#38bdf8;
-      color:black;
+    /* ── Bottom note ── */
+    .bottom-note {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
     }
+    .bottom-note .line { flex: 1; height: 1px; background: var(--border); }
+    .bottom-note span { font-size: 11px; color: var(--muted); white-space: nowrap; }
 
-    .register{
-      background:transparent;
-      border:1px solid #38bdf8 !important;
-      color:#38bdf8;
+    /* ── Hidden cards (filter) ── */
+    .card[data-platform].hidden { display: none; }
+
+    @media (max-width: 520px) {
+      .hero-stats { display: none; }
+      .grid { grid-template-columns: 1fr; }
     }
+  </style>
+</head>
+<body>
+<div class="container">
 
-    .hero{
-      max-width:1200px;
-      margin:auto;
-      padding:80px 20px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:40px;
-      align-items:center;
-    }
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">✦ SkyJely jasun 🔅</div>
+        <h1>List Harga</h1>
+        <p>Daftar harga layanan sosial media terpercaya</p>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-box"><div class="num">6</div><div class="lbl">Layanan</div></div>
+        <div class="stat-box"><div class="num">3</div><div class="lbl">Platform</div></div>
+      </div>
+    </div>
+  </div>
 
-    .hero h1{
-      font-size:65px;
-      line-height:1.1;
-    }
+  <!-- Filters -->
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterCards('Semua', this)"><span>✦</span> Semua</button>
+    <button class="filter-btn" onclick="filterCards('TikTok', this)"><span>♪</span> TikTok</button>
+    <button class="filter-btn" onclick="filterCards('Instagram', this)"><span>◈</span> Instagram</button>
+    <button class="filter-btn" onclick="filterCards('WhatsApp', this)"><span>✆</span> WhatsApp</button>
+  </div>
 
-    .hero span{
-      color:#38bdf8;
-    }
+  <!-- Cards Grid -->
+  <div class="grid" id="cardsGrid">
 
-    .hero p{
-      margin-top:20px;
-      color:#cbd5e1;
-      font-size:18px;
-    }
+    <!-- TikTok Followers -->
+    <div class="card" data-platform="TikTok" style="background:linear-gradient(135deg,#1a0a2e,#16082a,#0d0618);border-color:rgba(236,72,153,0.2);box-shadow:0 0 0 1px rgba(255,255,255,0.04),0 8px 32px -8px rgba(236,72,153,0.12)">
+      <div class="card-top-line" style="background:linear-gradient(90deg,transparent,rgba(236,72,153,0.7),transparent)"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <div class="card-left">
+            <div class="card-icon-row">
+              <div class="icon-box" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3);color:#f9a8d4">🎵</div>
+              <span class="platform-badge" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3);color:#f9a8d4">TikTok</span>
+            </div>
+            <div class="card-title">Followers</div>
+            <div class="card-link">🌐 <span>Link username TT only</span></div>
+          </div>
+          <div class="note-badge">‼️<br>HARGA TIDAK BISA DIUBAH</div>
+        </div>
+      </div>
+      <div class="divider" style="background:linear-gradient(90deg,transparent,rgba(236,72,153,0.45),transparent)"></div>
+      <div class="price-list">
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3);color:#f9a8d4">1</div><span class="row-qty">50 Followers</span></div><span class="row-price" style="color:#f9a8d4">Rp 5.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3);color:#f9a8d4">2</div><span class="row-qty">100 Followers</span></div><span class="row-price" style="color:#f9a8d4">Rp 10.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3);color:#f9a8d4">3</div><span class="row-qty">200 Followers</span></div><span class="row-price" style="color:#f9a8d4">Rp 21.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3);color:#f9a8d4">4</div><span class="row-qty">300 Followers</span></div><span class="row-price" style="color:#f9a8d4">Rp 30.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3);color:#f9a8d4">5</div><span class="row-qty">400 Followers</span></div><span class="row-price" style="color:#f9a8d4">Rp 32.000</span></div>
+      </div>
+      <div class="card-footer" style="color:#f9a8d4">skyjely 🔅</div>
+    </div>
 
-    .hero-buttons{
-      margin-top:30px;
-      display:flex;
-      gap:15px;
-      flex-wrap:wrap;
-    }
+    <!-- TikTok Likes -->
+    <div class="card" data-platform="TikTok" style="background:linear-gradient(135deg,#1e0a2e,#180a28,#0d0618);border-color:rgba(192,38,211,0.2);box-shadow:0 0 0 1px rgba(255,255,255,0.04),0 8px 32px -8px rgba(192,38,211,0.12)">
+      <div class="card-top-line" style="background:linear-gradient(90deg,transparent,rgba(192,38,211,0.7),transparent)"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <div class="card-left">
+            <div class="card-icon-row">
+              <div class="icon-box" style="background:rgba(192,38,211,0.15);border-color:rgba(192,38,211,0.3);color:#e879f9">❤️</div>
+              <span class="platform-badge" style="background:rgba(192,38,211,0.15);border-color:rgba(192,38,211,0.3);color:#e879f9">TikTok</span>
+            </div>
+            <div class="card-title">Likes</div>
+            <div class="card-link">🌐 <span>Link video TT only</span></div>
+          </div>
+          <div class="note-badge">‼️<br>HARGA TIDAK DIUBAH</div>
+        </div>
+      </div>
+      <div class="divider" style="background:linear-gradient(90deg,transparent,rgba(192,38,211,0.45),transparent)"></div>
+      <div class="price-list">
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(192,38,211,0.15);border-color:rgba(192,38,211,0.3);color:#e879f9">1</div><span class="row-qty">100 Likes</span></div><span class="row-price" style="color:#e879f9">Rp 3.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(192,38,211,0.15);border-color:rgba(192,38,211,0.3);color:#e879f9">2</div><span class="row-qty">1.000 Likes</span></div><span class="row-price" style="color:#e879f9">Rp 10.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(192,38,211,0.15);border-color:rgba(192,38,211,0.3);color:#e879f9">3</div><span class="row-qty">1.500 Likes</span></div><span class="row-price" style="color:#e879f9">Rp 15.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(192,38,211,0.15);border-color:rgba(192,38,211,0.3);color:#e879f9">4</div><span class="row-qty">2.000 Likes</span></div><span class="row-price" style="color:#e879f9">Rp 17.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(192,38,211,0.15);border-color:rgba(192,38,211,0.3);color:#e879f9">5</div><span class="row-qty">2.500 Likes</span></div><span class="row-price" style="color:#e879f9">Rp 25.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(192,38,211,0.15);border-color:rgba(192,38,211,0.3);color:#e879f9">6</div><span class="row-qty">3.000 Likes</span></div><span class="row-price" style="color:#e879f9">Rp 30.000</span></div>
+      </div>
+      <div class="card-footer" style="color:#e879f9">skyjely 🔅</div>
+    </div>
 
-    .hero-buttons button{
-      padding:15px 25px;
-      border:none;
-      border-radius:15px;
-      font-weight:bold;
-      cursor:pointer;
-      transition:0.3s;
-    }
+    <!-- TikTok Views -->
+    <div class="card" data-platform="TikTok" style="background:linear-gradient(135deg,#0e0a2e,#0c0a28,#060618);border-color:rgba(139,92,246,0.2);box-shadow:0 0 0 1px rgba(255,255,255,0.04),0 8px 32px -8px rgba(139,92,246,0.12)">
+      <div class="card-top-line" style="background:linear-gradient(90deg,transparent,rgba(139,92,246,0.7),transparent)"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <div class="card-left">
+            <div class="card-icon-row">
+              <div class="icon-box" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3);color:#c4b5fd">👁️</div>
+              <span class="platform-badge" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3);color:#c4b5fd">TikTok</span>
+            </div>
+            <div class="card-title">Views</div>
+            <div class="card-link">🌐 <span>Link video TT only</span></div>
+          </div>
+          <div class="note-badge">‼️<br>ADA HARGA ADA KUALITAS</div>
+        </div>
+      </div>
+      <div class="divider" style="background:linear-gradient(90deg,transparent,rgba(139,92,246,0.45),transparent)"></div>
+      <div class="price-list">
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3);color:#c4b5fd">1</div><span class="row-qty">100 Views</span></div><span class="row-price" style="color:#c4b5fd">Rp 2.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3);color:#c4b5fd">2</div><span class="row-qty">200 Views</span></div><span class="row-price" style="color:#c4b5fd">Rp 3.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3);color:#c4b5fd">3</div><span class="row-qty">1.000 Views</span></div><span class="row-price" style="color:#c4b5fd">Rp 5.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3);color:#c4b5fd">4</div><span class="row-qty">2.500 Views</span></div><span class="row-price" style="color:#c4b5fd">Rp 7.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3);color:#c4b5fd">5</div><span class="row-qty">3.000 Views</span></div><span class="row-price" style="color:#c4b5fd">Rp 10.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3);color:#c4b5fd">6</div><span class="row-qty">4.000 Views</span></div><span class="row-price" style="color:#c4b5fd">Rp 12.000</span></div>
+      </div>
+      <div class="card-footer" style="color:#c4b5fd">skyjely 🔅</div>
+    </div>
 
-    .btn-primary{
-      background:#38bdf8;
-      color:black;
-    }
+    <!-- Instagram Followers -->
+    <div class="card" data-platform="Instagram" style="background:linear-gradient(135deg,#2e1a0a,#281408,#180d04);border-color:rgba(249,115,22,0.2);box-shadow:0 0 0 1px rgba(255,255,255,0.04),0 8px 32px -8px rgba(249,115,22,0.12)">
+      <div class="card-top-line" style="background:linear-gradient(90deg,transparent,rgba(249,115,22,0.7),transparent)"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <div class="card-left">
+            <div class="card-icon-row">
+              <div class="icon-box" style="background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.3);color:#fdba74">📸</div>
+              <span class="platform-badge" style="background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.3);color:#fdba74">Instagram</span>
+            </div>
+            <div class="card-title">Followers</div>
+            <div class="card-link">🌐 <span>instagram.com/username</span></div>
+          </div>
+          <div class="note-badge">‼️<br>ADA HARGA ADA KUALITAS</div>
+        </div>
+      </div>
+      <div class="divider" style="background:linear-gradient(90deg,transparent,rgba(249,115,22,0.45),transparent)"></div>
+      <div class="price-list">
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.3);color:#fdba74">1</div><span class="row-qty">100 Followers</span></div><span class="row-price" style="color:#fdba74">Rp 3.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.3);color:#fdba74">2</div><span class="row-qty">200 Followers</span></div><span class="row-price" style="color:#fdba74">Rp 6.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.3);color:#fdba74">3</div><span class="row-qty">300 Followers</span></div><span class="row-price" style="color:#fdba74">Rp 8.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.3);color:#fdba74">4</div><span class="row-qty">400 Followers</span></div><span class="row-price" style="color:#fdba74">Rp 10.000</span></div>
+      </div>
+      <div class="card-footer" style="color:#fdba74">skyjely 🔅</div>
+    </div>
 
-    .btn-secondary{
-      background:#111827;
-      color:white;
-      border:1px solid rgba(255,255,255,0.1);
-    }
+    <!-- Instagram Likes Story -->
+    <div class="card" data-platform="Instagram" style="background:linear-gradient(135deg,#2e200a,#281a08,#181004);border-color:rgba(245,158,11,0.2);box-shadow:0 0 0 1px rgba(255,255,255,0.04),0 8px 32px -8px rgba(245,158,11,0.12)">
+      <div class="card-top-line" style="background:linear-gradient(90deg,transparent,rgba(245,158,11,0.7),transparent)"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <div class="card-left">
+            <div class="card-icon-row">
+              <div class="icon-box" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3);color:#fcd34d">⭐</div>
+              <span class="platform-badge" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3);color:#fcd34d">Instagram</span>
+            </div>
+            <div class="card-title">Likes Story</div>
+            <div class="card-link">🌐 <span>instagram.com/p/CDIDw7IDVAN/</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="divider" style="background:linear-gradient(90deg,transparent,rgba(245,158,11,0.45),transparent)"></div>
+      <div class="price-list">
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3);color:#fcd34d">1</div><span class="row-qty">100 Likes</span></div><span class="row-price" style="color:#fcd34d">Rp 3.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3);color:#fcd34d">2</div><span class="row-qty">200 Likes</span></div><span class="row-price" style="color:#fcd34d">Rp 4.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3);color:#fcd34d">3</div><span class="row-qty">1.000 Likes</span></div><span class="row-price" style="color:#fcd34d">Rp 8.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3);color:#fcd34d">4</div><span class="row-qty">2.000 Likes</span></div><span class="row-price" style="color:#fcd34d">Rp 13.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3);color:#fcd34d">5</div><span class="row-qty">3.000 Likes</span></div><span class="row-price" style="color:#fcd34d">Rp 20.000</span></div>
+      </div>
+      <div class="card-footer" style="color:#fcd34d">skyjely 🔅</div>
+    </div>
 
-    .order-box{
-      background:#111827;
-      padding:30px;
-      border-radius:25px;
-      border:1px solid rgba(255,255,255,0.1);
-      box-shadow:0 0 30px rgba(56,189,248,0.2);
-    }
+    <!-- WhatsApp Pengikut Saluran -->
+    <div class="card" data-platform="WhatsApp" style="background:linear-gradient(135deg,#0a2e1a,#082818,#04180d);border-color:rgba(16,185,129,0.2);box-shadow:0 0 0 1px rgba(255,255,255,0.04),0 8px 32px -8px rgba(16,185,129,0.12)">
+      <div class="card-top-line" style="background:linear-gradient(90deg,transparent,rgba(16,185,129,0.7),transparent)"></div>
+      <div class="card-header">
+        <div class="card-meta">
+          <div class="card-left">
+            <div class="card-icon-row">
+              <div class="icon-box" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3);color:#6ee7b7">💬</div>
+              <span class="platform-badge" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3);color:#6ee7b7">WhatsApp</span>
+            </div>
+            <div class="card-title">Pengikut Saluran</div>
+            <div class="card-link">🌐 <span>Link saluran only</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="divider" style="background:linear-gradient(90deg,transparent,rgba(16,185,129,0.45),transparent)"></div>
+      <div class="price-list">
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3);color:#6ee7b7">1</div><span class="row-qty">55 Pengikut</span></div><span class="row-price" style="color:#6ee7b7">Rp 5.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3);color:#6ee7b7">2</div><span class="row-qty">100 Pengikut</span></div><span class="row-price" style="color:#6ee7b7">Rp 8.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3);color:#6ee7b7">3</div><span class="row-qty">200 Pengikut</span></div><span class="row-price" style="color:#6ee7b7">Rp 10.000</span></div>
+        <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3);color:#6ee7b7">4</div><span class="row-qty">300 Pengikut</span></div><span class="row-price" style="color:#6ee7b7">Rp 15.000</span></div>
+      </div>
+      <div class="card-footer" style="color:#6ee7b7">skyjely 🔅</div>
+    </div>
 
-    .order-box h2{
-      color:#38bdf8;
-      margin-bottom:20px;
-    }
+  </div>
 
-    .input{
-      width:100%;
-      padding:15px;
-      margin-top:15px;
-      border:none;
-      border-radius:12px;
-      background:#1e293b;
-      color:white;
-      font-size:15px;
-    }
+  <!-- Bottom note -->
+  <div class="bottom-note">
+    <div class="line"></div>
+    <span>By. SkyJely jasun 🔅 — Ada Harga Ada Kualitas</span>
+    <div class="line"></div>
+  </div>
 
-    .order-btn{
-      width:100%;
-      padding:15px;
-      margin-top:20px;
-      border:none;
-      border-radius:12px;
-      background:#38bdf8;
-      color:black;
-      font-weight:bold;
-      cursor:pointer;
-      transition:0.3s;
-    }
+</div>
 
-    .stats{
-      max-width:1200px;
-      margin:auto;
-      padding:20px;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-
-    .stat-card{
-      background:#111827;
-      padding:30px;
-      border-radius:25px;
-      text-align:center;
-      border:1px solid rgba(255,255,255,0.1);
-    }
-
-    .stat-card h3{
-      font-size:35px;
-      color:#38bdf8;
-    }
-
-    .services{
-      max-width:1200px;
-      margin:auto;
-      padding:80px 20px;
-    }
-
-    .section-title{
-      text-align:center;
-      margin-bottom:50px;
-    }
-
-    .section-title h2{
-      font-size:45px;
-    }
-
-    .section-title span{
-      color:#38bdf8;
-    }
-
-    .service-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:25px;
-    }
-
-    .service-card{
-      background:#111827;
-      padding:25px;
-      border-radius:25px;
-      border:1px solid rgba(255,255,255,0.1);
-      transition:0.3s;
-    }
-
-    .service-card:hover{
-      transform:translateY(-10px);
-      border-color:#38bdf8;
-      box-shadow:0 0 20px rgba(56,189,248,0.3);
-    }
-
-    .service-card h3{
-      color:#38bdf8;
-      margin-bottom:20px;
-      font-size:25px;
-    }
-
-    .price-item{
-      background:#1e293b;
-      padding:12px;
-      border-radius:10px;
-      margin-bottom:10px;
-    }
-
-    .service-card button{
-      width:100%;
-      padding:14px;
-      border:none;
-      border-radius:12px;
-      background:#38bdf8;
-      color:black;
-      font-weight:bold;
-      margin-top:15px;
-      cursor:pointer;
-    }
-
-    .deposit{
-      max-width:1200px;
-      margin:auto;
-      padding:20px;
-    }
-
-    .deposit-box{
-      background:#111827;
-      border-radius:30px;
-      padding:40px;
-      border:1px solid rgba(255,255,255,0.1);
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:40px;
-    }
-
-    footer{
-      margin-top:80px;
-      background:#0f172a;
-      padding:40px 20px;
-      border-top:1px solid rgba(255,255,255,0.1);
-    }
-
-    .footer-content{
-      max-width:1200px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:30px;
-    }
-
-    .footer-content h3{
-      color:#38bdf8;
-      margin-bottom:15px;
-    }
-
-    .copyright{
-      text-align:center;
-      margin-top:30px;
-      color:#94a3b8;
-    }
-
-    @media(max-width:900px){
-      .hero,
-      .deposit-box,
-      .stats{
-        grid-template-columns:1fr;
+<script>
+  function filterCards(platform, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#cardsGrid .card').forEach(card => {
+      if (platform === 'Semua' || card.dataset.platform === platform) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
       }
-
-      .hero h1{
-        font-size:45px;
-      }
-    }
-  </style></head>
-<body><header>
-  <div class="navbar">
-    <div class="logo">SKYJELY JASUN SOSMED</div><div class="nav-btn">
-  <button class="login">Login</button>
-  <button class="register">Register</button>
-</div>
-
-  </div>
-</header><section class="hero">
-  <div>
-    <h1>PANEL <span>SMM</span> MODERN</h1><p>
-  Fast Process • Trusted • Auto Order • Anti Delay • Cheap Price
-</p>
-
-<div class="hero-buttons">
-  <button class="btn-primary">ORDER SEKARANG</button>
-  <button class="btn-secondary">DEPOSIT SALDO</button>
-</div>
-
-  </div>  <div class="order-box">
-    <h2>AUTO ORDER PANEL</h2><input type="text" placeholder="Masukkan Link" class="input">
-
-<select class="input">
-  <option>Followers TikTok</option>
-  <option>Likes TikTok</option>
-  <option>Views TikTok</option>
-  <option>Instagram Followers</option>
-</select>
-
-<input type="number" placeholder="Jumlah Order" class="input">
-
-<button class="order-btn">PROCESS ORDER</button>
-
-  </div>
-</section><section class="stats">
-  <div class="stat-card">
-    <h3>1000+</h3>
-    <p>Order Selesai</p>
-  </div>  <div class="stat-card">
-    <h3>FAST</h3>
-    <p>Proses Super Cepat</p>
-  </div>  <div class="stat-card">
-    <h3>24/7</h3>
-    <p>Online Setiap Hari</p>
-  </div>
-</section><section class="services">
-  <div class="section-title">
-    <h2>LIST <span>LAYANAN</span></h2>
-  </div>  <div class="service-grid"><div class="service-card">
-  <h3>Followers TikTok</h3>
-
-  <div class="price-item">50 Followers — 5K</div>
-  <div class="price-item">100 Followers — 10K</div>
-  <div class="price-item">200 Followers — 21K</div>
-  <div class="price-item">300 Followers — 30K</div>
-  <div class="price-item">400 Followers — 32K</div>
-
-  <button>ORDER NOW</button>
-</div>
-
-<div class="service-card">
-  <h3>Likes TikTok</h3>
-
-  <div class="price-item">100 Likes — 3K</div>
-  <div class="price-item">1000 Likes — 10K</div>
-  <div class="price-item">1500 Likes — 15K</div>
-  <div class="price-item">2000 Likes — 17K</div>
-  <div class="price-item">2500 Likes — 25K</div>
-  <div class="price-item">3000 Likes — 30K</div>
-
-  <button>ORDER NOW</button>
-</div>
-
-<div class="service-card">
-  <h3>Views TikTok</h3>
-
-  <div class="price-item">100 Views — 2K</div>
-  <div class="price-item">200 Views — 3K</div>
-  <div class="price-item">1000 Views — 5K</div>
-  <div class="price-item">2500 Views — 7K</div>
-  <div class="price-item">3000 Views — 10K</div>
-  <div class="price-item">4000 Views — 12K</div>
-
-  <button>ORDER NOW</button>
-</div>
-
-  </div>
-</section><section class="deposit">
-  <div class="deposit-box">
-    <div>
-      <h2 style="font-size:40px;">
-        DEPOSIT <span style="color:#38bdf8;">SALDO</span>
-      </h2><p style="margin-top:20px;color:#cbd5e1;line-height:1.8;">
-    Deposit otomatis menggunakan DANA, SeaBank, dan QRIS.
-  </p>
-</div>
-
-<div>
-  <input type="text" placeholder="Nama Lengkap" class="input">
-
-  <input type="number" placeholder="Jumlah Deposit" class="input">
-
-  <select class="input">
-    <option>DANA</option>
-    <option>SeaBank</option>
-    <option>QRIS</option>
-  </select>
-
-  <button class="order-btn">DEPOSIT SEKARANG</button>
-</div>
-
-  </div>
-</section><footer>
-  <div class="footer-content">
-    <div>
-      <h3>SKYJELY JASUN</h3>
-      <p>Website panel sosial media modern dengan tampilan premium.</p>
-    </div><div>
-  <h3>PAYMENT</h3>
-  <p>DANA</p>
-  <p>SeaBank</p>
-  <p>QRIS</p>
-</div>
-
-<div>
-  <h3>CONTACT</h3>
-  <p>WhatsApp Admin</p>
-  <p>Instagram SKYJELY</p>
-  <p>TikTok SKYJELY</p>
-</div>
-
-  </div>  <div class="copyright">
-    © 2026 SKYJELY JASUN SOSMED — All Rights Reserved.
-  </div>
-</footer></body>
+    });
+  }
+</script>
+</body>
 </html>
