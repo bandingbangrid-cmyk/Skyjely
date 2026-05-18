@@ -1,261 +1,112 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SKYJELY Jasun Sosmed</title>
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, sans-serif;
-    }
-
     body{
-      background: linear-gradient(135deg,#0f172a,#1e293b,#020617);
-      color:white;
-      padding:20px;
-    }
-
-    .container{
-      max-width:1000px;
-      margin:auto;
-    }
-
-    .header{
-      text-align:center;
-      margin-bottom:30px;
-    }
-
-    .header h1{
-      font-size:40px;
-      color:#38bdf8;
-      text-shadow:0 0 15px #38bdf8;
-    }
-
-    .header p{
-      color:#cbd5e1;
-      margin-top:10px;
-      font-size:16px;
-    }
-
-    .card{
-      background:#111827;
-      border:1px solid #334155;
-      border-radius:20px;
-      padding:20px;
-      margin-bottom:25px;
-      box-shadow:0 0 20px rgba(0,0,0,0.4);
-      transition:0.3s;
-    }
-
-    .card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 0 25px rgba(56,189,248,0.3);
-    }
-
-    .card h2{
-      color:#38bdf8;
-      margin-bottom:15px;
-      font-size:24px;
-    }
-
-    .by{
-      color:#94a3b8;
-      margin-bottom:15px;
-      font-size:14px;
-    }
-
-    ul{
-      list-style:none;
-    }
-
-    ul li{
-      background:#1e293b;
-      padding:12px;
-      border-radius:10px;
-      margin-bottom:10px;
-      font-size:17px;
-      border-left:4px solid #38bdf8;
-    }
-
-    .note{
-      margin-top:15px;
       background:#0f172a;
-      padding:12px;
-      border-radius:10px;
-      color:#facc15;
-      font-size:14px;
+      color:white;
+      font-family:Arial;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
     }
 
-    .footer{
+    .box{
+      background:#111827;
+      padding:30px;
+      border-radius:20px;
+      width:350px;
+    }
+
+    h1{
       text-align:center;
-      margin-top:40px;
-      color:#94a3b8;
-      font-size:15px;
+      color:#38bdf8;
     }
 
-    .btn{
-      display:inline-block;
-      margin-top:15px;
-      padding:12px 20px;
+    select,input,button{
+      width:100%;
+      padding:12px;
+      margin-top:12px;
+      border:none;
+      border-radius:10px;
+    }
+
+    button{
       background:#38bdf8;
-      color:black;
-      text-decoration:none;
-      border-radius:12px;
       font-weight:bold;
-      transition:0.3s;
+      cursor:pointer;
     }
 
-    .btn:hover{
-      background:white;
-    }
-
-    @media(max-width:600px){
-      .header h1{
-        font-size:30px;
-      }
-
-      .card h2{
-        font-size:20px;
-      }
-
-      ul li{
-        font-size:15px;
-      }
+    #result{
+      margin-top:15px;
+      color:#22c55e;
     }
   </style>
 </head>
 <body>
 
-<div class="container">
+<div class="box">
+  <h1>SKYJELY JASUN</h1>
 
-  <div class="header">
-    <h1>SKYJELY JASUN SOSMED</h1>
-    <p>Fast Process • Aman • Anti Delay • Trusted Services</p>
-  </div>
+  <select id="service">
+    <option value="1">Followers TikTok</option>
+    <option value="2">Likes TikTok</option>
+    <option value="3">Views TikTok</option>
+  </select>
 
-  <!-- FOLLOWERS TIKTOK -->
-  <div class="card">
-    <h2>LIST HARGA FOLLOWERS TIKTOK</h2>
-    <div class="by">By. SKYJELY Jasun 🔅</div>
+  <input type="text" id="link" placeholder="Masukkan Link">
 
-    <ul>
-      <li>50 Followers = 5.000</li>
-      <li>100 Followers = 10.000</li>
-      <li>200 Followers = 21.000</li>
-      <li>300 Followers = 30.000</li>
-      <li>400 Followers = 32.000</li>
-    </ul>
+  <input type="number" id="qty" placeholder="Jumlah">
 
-    <div class="note">
-      🌐 Link username TikTok only <br><br>
-      ❗ Harga tidak bisa diubah
-    </div>
-  </div>
+  <button onclick="orderNow()">ORDER SEKARANG</button>
 
-  <!-- LIKES TIKTOK -->
-  <div class="card">
-    <h2>LIST HARGA LIKES TIKTOK</h2>
-    <div class="by">By. SKYJELY Jasun 🔅</div>
-
-    <ul>
-      <li>100 Likes = 3.000</li>
-      <li>1000 Likes = 10.000</li>
-      <li>1500 Likes = 15.000</li>
-      <li>2000 Likes = 17.000</li>
-      <li>2500 Likes = 25.000</li>
-      <li>3000 Likes = 30.000</li>
-    </ul>
-
-    <div class="note">
-      🌐 Link video TikTok only <br><br>
-      ❗ Harga tidak bisa diubah
-    </div>
-  </div>
-
-  <!-- VIEWS TIKTOK -->
-  <div class="card">
-    <h2>LIST HARGA VIEWS TIKTOK</h2>
-    <div class="by">By. SKYJELY Jasun 🔅</div>
-
-    <ul>
-      <li>100 Views = 2.000</li>
-      <li>200 Views = 3.000</li>
-      <li>1000 Views = 5.000</li>
-      <li>2500 Views = 7.000</li>
-      <li>3000 Views = 10.000</li>
-      <li>4000 Views = 12.000</li>
-    </ul>
-
-    <div class="note">
-      🌐 Link video TikTok only <br><br>
-      ❗ Ada harga ada kualitas
-    </div>
-  </div>
-
-  <!-- INSTAGRAM FOLLOWERS -->
-  <div class="card">
-    <h2>LIST HARGA INSTAGRAM FOLLOWERS</h2>
-    <div class="by">By. SKYJELY Jasun 🔅</div>
-
-    <ul>
-      <li>100 Followers = 3.000</li>
-      <li>200 Followers = 6.000</li>
-      <li>300 Followers = 8.000</li>
-      <li>400 Followers = 10.000</li>
-    </ul>
-
-    <div class="note">
-      🌐 Link contoh : https://www.instagram.com/username <br><br>
-      ❗ Ada harga ada kualitas
-    </div>
-  </div>
-
-  <!-- INSTAGRAM STORY LIKES -->
-  <div class="card">
-    <h2>LIST HARGA LIKES INSTAGRAM STORY</h2>
-    <div class="by">By. SKYJELY Jasun 🔅</div>
-
-    <ul>
-      <li>100 Likes = 3.000</li>
-      <li>200 Likes = 4.000</li>
-      <li>1000 Likes = 8.000</li>
-      <li>2000 Likes = 13.000</li>
-      <li>3000 Likes = 20.000</li>
-    </ul>
-
-    <div class="note">
-      🌐 Link postingan Instagram only <br><br>
-      https://www.instagram.com/p/CDIDw7IDVAN/
-    </div>
-  </div>
-
-  <!-- WHATSAPP -->
-  <div class="card">
-    <h2>LIST HARGA PENGIKUT SALURAN WHATSAPP</h2>
-    <div class="by">By. SKYJELY Jasun 🔅</div>
-
-    <ul>
-      <li>55 Pengikut = 5.000</li>
-      <li>100 Pengikut = 8.000</li>
-      <li>200 Pengikut = 10.000</li>
-      <li>300 Pengikut = 15.000</li>
-    </ul>
-
-    <div class="note">
-      🌐 Link saluran WhatsApp only
-    </div>
-  </div>
-
-  <div class="footer">
-    © 2026 SKYJELY Jasun Sosmed <br>
-    Fast Process • Trusted • Aman
-  </div>
-
+  <div id="result"></div>
 </div>
+
+<script>
+async function orderNow(){
+
+  const service = document.getElementById("service").value;
+  const link = document.getElementById("link").value;
+  const qty = document.getElementById("qty").value;
+
+  const api_key = "MASUKKAN_API_BARU_KAMU";
+  const api_url = "https://domainpanelkamu.com/api/v2";
+
+  const data = new URLSearchParams();
+  data.append("key", api_key);
+  data.append("action", "add");
+  data.append("service", service);
+  data.append("link", link);
+  data.append("quantity", qty);
+
+  try{
+
+    const response = await fetch(api_url,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/x-www-form-urlencoded"
+      },
+      body:data
+    });
+
+    const result = await response.json();
+
+    document.getElementById("result").innerHTML =
+      "Order berhasil! ID : " + result.order;
+
+  }catch(err){
+
+    document.getElementById("result").innerHTML =
+      "Order gagal!";
+  }
+}
+</script>
 
 </body>
 </html>
