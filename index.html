@@ -60,6 +60,20 @@
       justify-content: space-between;
       gap: 20px;
     }
+    .hero-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .hero-logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 2px solid rgba(108,99,255,0.35);
+      box-shadow: 0 0 20px rgba(108,99,255,0.2);
+      flex-shrink: 0;
+    }
     .hero-badge {
       display: inline-block;
       font-size: 11px;
@@ -161,6 +175,11 @@
       border-color: var(--primary);
       box-shadow: 0 4px 18px rgba(108,99,255,0.3);
     }
+    .filter-btn svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
 
     /* ── Grid ── */
     .grid {
@@ -176,6 +195,8 @@
       border: 1px solid;
       overflow: hidden;
       transition: transform .3s;
+      display: flex;
+      flex-direction: column;
     }
     .card:hover { transform: translateY(-4px); }
     .card-top-line {
@@ -204,8 +225,12 @@
       width: 32px; height: 32px;
       border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 15px;
       border: 1px solid;
+      flex-shrink: 0;
+    }
+    .icon-box svg {
+      width: 16px;
+      height: 16px;
     }
     .platform-badge {
       font-size: 9px;
@@ -252,6 +277,7 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
+      flex: 1;
     }
     .price-row {
       display: flex;
@@ -309,6 +335,11 @@
     .wa-order-btn:hover {
       background: rgba(16,185,129,0.22);
       border-color: rgba(16,185,129,0.5);
+    }
+    .wa-order-btn svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
     }
     .wa-order-btn .arrow {
       font-size: 11px;
@@ -392,6 +423,9 @@
     .channel-btn:hover {
       background: rgba(16,185,129,0.25);
       border-color: rgba(16,185,129,0.55);
+    }
+    .channel-btn svg {
+      width: 16px; height: 16px; flex-shrink: 0;
     }
 
     .testi-grid {
@@ -496,9 +530,9 @@
       background: rgba(16,185,129,0.15);
       border: 1px solid rgba(16,185,129,0.3);
       display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
       flex-shrink: 0;
     }
+    .channel-cta-icon svg { width: 22px; height: 22px; }
     .channel-cta-title {
       font-size: 14px;
       font-weight: 700;
@@ -542,10 +576,13 @@
   <!-- Hero -->
   <div class="hero">
     <div class="hero-inner">
-      <div>
-        <div class="hero-badge">✦ SkyJely jasun 🔅</div>
-        <h1>List Harga</h1>
-        <p>Daftar harga layanan sosial media terpercaya</p>
+      <div class="hero-left">
+        <img src="assets/images/20260516_234852-1779136660805.jpg" alt="SkyJely Logo" class="hero-logo" />
+        <div>
+          <div class="hero-badge">✦ SkyJely jasun 🔅</div>
+          <h1>List Harga</h1>
+          <p>Daftar harga layanan sosial media terpercaya</p>
+        </div>
       </div>
       <div class="hero-right">
         <div class="hero-stats">
@@ -553,7 +590,8 @@
           <div class="stat-box"><div class="num">3</div><div class="lbl">Platform</div></div>
         </div>
         <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20layanan%20%F0%9F%99%8F" target="_blank" class="hero-wa-btn">
-          💬 Order via WA
+          <svg viewBox="0 0 24 24" fill="#25D366" style="width:16px;height:16px;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Order via WA
         </a>
       </div>
     </div>
@@ -561,10 +599,24 @@
 
   <!-- Filters -->
   <div class="filters">
-    <button class="filter-btn active" onclick="filterCards('Semua', this)"><span>✦</span> Semua</button>
-    <button class="filter-btn" onclick="filterCards('TikTok', this)"><span>♪</span> TikTok</button>
-    <button class="filter-btn" onclick="filterCards('Instagram', this)"><span>◈</span> Instagram</button>
-    <button class="filter-btn" onclick="filterCards('WhatsApp', this)"><span>✆</span> WhatsApp</button>
+    <button class="filter-btn active" onclick="filterCards('Semua', this)">
+      <span>✦</span> Semua
+    </button>
+    <button class="filter-btn" onclick="filterCards('TikTok', this)">
+      <!-- TikTok official SVG -->
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+      TikTok
+    </button>
+    <button class="filter-btn" onclick="filterCards('Instagram', this)">
+      <!-- Instagram official SVG -->
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      Instagram
+    </button>
+    <button class="filter-btn" onclick="filterCards('WhatsApp', this)">
+      <!-- WhatsApp official SVG -->
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </button>
   </div>
 
   <!-- Cards Grid -->
@@ -577,7 +629,9 @@
         <div class="card-meta">
           <div class="card-left">
             <div class="card-icon-row">
-              <div class="icon-box" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3);color:#f9a8d4">🎵</div>
+              <div class="icon-box" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3)">
+                <svg viewBox="0 0 24 24" fill="#f9a8d4"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+              </div>
               <span class="platform-badge" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3);color:#f9a8d4">TikTok</span>
             </div>
             <div class="card-title">Followers</div>
@@ -594,7 +648,10 @@
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3);color:#f9a8d4">4</div><span class="row-qty">300 Followers</span></div><span class="row-price" style="color:#f9a8d4">Rp 30.000</span></div>
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.3);color:#f9a8d4">5</div><span class="row-qty">400 Followers</span></div><span class="row-price" style="color:#f9a8d4">Rp 32.000</span></div>
       </div>
-      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20TikTok%20Followers%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">💬 Order via WhatsApp <span class="arrow">→</span></a>
+      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20TikTok%20Followers%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">
+        <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Order via WhatsApp <span class="arrow">→</span>
+      </a>
       <div class="card-footer" style="color:#f9a8d4">skyjely 🔅</div>
     </div>
 
@@ -605,7 +662,9 @@
         <div class="card-meta">
           <div class="card-left">
             <div class="card-icon-row">
-              <div class="icon-box" style="background:rgba(192,38,211,0.15);border-color:rgba(192,38,211,0.3);color:#e879f9">❤️</div>
+              <div class="icon-box" style="background:rgba(192,38,211,0.15);border-color:rgba(192,38,211,0.3)">
+                <svg viewBox="0 0 24 24" fill="#e879f9"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+              </div>
               <span class="platform-badge" style="background:rgba(192,38,211,0.15);border-color:rgba(192,38,211,0.3);color:#e879f9">TikTok</span>
             </div>
             <div class="card-title">Likes</div>
@@ -623,7 +682,10 @@
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(192,38,211,0.15);border-color:rgba(192,38,211,0.3);color:#e879f9">5</div><span class="row-qty">2.500 Likes</span></div><span class="row-price" style="color:#e879f9">Rp 25.000</span></div>
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(192,38,211,0.15);border-color:rgba(192,38,211,0.3);color:#e879f9">6</div><span class="row-qty">3.000 Likes</span></div><span class="row-price" style="color:#e879f9">Rp 30.000</span></div>
       </div>
-      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20TikTok%20Likes%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">💬 Order via WhatsApp <span class="arrow">→</span></a>
+      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20TikTok%20Likes%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">
+        <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Order via WhatsApp <span class="arrow">→</span>
+      </a>
       <div class="card-footer" style="color:#e879f9">skyjely 🔅</div>
     </div>
 
@@ -634,7 +696,9 @@
         <div class="card-meta">
           <div class="card-left">
             <div class="card-icon-row">
-              <div class="icon-box" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3);color:#c4b5fd">👁️</div>
+              <div class="icon-box" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3)">
+                <svg viewBox="0 0 24 24" fill="#c4b5fd"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+              </div>
               <span class="platform-badge" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3);color:#c4b5fd">TikTok</span>
             </div>
             <div class="card-title">Views</div>
@@ -652,7 +716,10 @@
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3);color:#c4b5fd">5</div><span class="row-qty">3.000 Views</span></div><span class="row-price" style="color:#c4b5fd">Rp 10.000</span></div>
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(139,92,246,0.15);border-color:rgba(139,92,246,0.3);color:#c4b5fd">6</div><span class="row-qty">4.000 Views</span></div><span class="row-price" style="color:#c4b5fd">Rp 12.000</span></div>
       </div>
-      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20TikTok%20Views%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">💬 Order via WhatsApp <span class="arrow">→</span></a>
+      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20TikTok%20Views%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">
+        <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Order via WhatsApp <span class="arrow">→</span>
+      </a>
       <div class="card-footer" style="color:#c4b5fd">skyjely 🔅</div>
     </div>
 
@@ -663,13 +730,15 @@
         <div class="card-meta">
           <div class="card-left">
             <div class="card-icon-row">
-              <div class="icon-box" style="background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.3);color:#fdba74">📸</div>
+              <div class="icon-box" style="background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.3)">
+                <svg viewBox="0 0 24 24" fill="#fdba74"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </div>
               <span class="platform-badge" style="background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.3);color:#fdba74">Instagram</span>
             </div>
             <div class="card-title">Followers</div>
             <div class="card-link">🌐 <span>instagram.com/username</span></div>
           </div>
-          <div class="note-badge">‼️<br>ADA HARGA ADA KUALITAS</div>
+          <div class="note-badge">‼️<br>ADA HARGA ADA KUALITAS BOS</div>
         </div>
       </div>
       <div class="divider" style="background:linear-gradient(90deg,transparent,rgba(249,115,22,0.45),transparent)"></div>
@@ -679,7 +748,10 @@
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.3);color:#fdba74">3</div><span class="row-qty">300 Followers</span></div><span class="row-price" style="color:#fdba74">Rp 8.000</span></div>
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.3);color:#fdba74">4</div><span class="row-qty">400 Followers</span></div><span class="row-price" style="color:#fdba74">Rp 10.000</span></div>
       </div>
-      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20Instagram%20Followers%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">💬 Order via WhatsApp <span class="arrow">→</span></a>
+      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20Instagram%20Followers%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">
+        <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Order via WhatsApp <span class="arrow">→</span>
+      </a>
       <div class="card-footer" style="color:#fdba74">skyjely 🔅</div>
     </div>
 
@@ -690,7 +762,9 @@
         <div class="card-meta">
           <div class="card-left">
             <div class="card-icon-row">
-              <div class="icon-box" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3);color:#fcd34d">⭐</div>
+              <div class="icon-box" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3)">
+                <svg viewBox="0 0 24 24" fill="#fcd34d"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </div>
               <span class="platform-badge" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3);color:#fcd34d">Instagram</span>
             </div>
             <div class="card-title">Likes Story</div>
@@ -706,7 +780,10 @@
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3);color:#fcd34d">4</div><span class="row-qty">2.000 Likes</span></div><span class="row-price" style="color:#fcd34d">Rp 13.000</span></div>
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3);color:#fcd34d">5</div><span class="row-qty">3.000 Likes</span></div><span class="row-price" style="color:#fcd34d">Rp 20.000</span></div>
       </div>
-      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20Instagram%20Likes%20Story%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">💬 Order via WhatsApp <span class="arrow">→</span></a>
+      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20Instagram%20Likes%20Story%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">
+        <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Order via WhatsApp <span class="arrow">→</span>
+      </a>
       <div class="card-footer" style="color:#fcd34d">skyjely 🔅</div>
     </div>
 
@@ -717,7 +794,9 @@
         <div class="card-meta">
           <div class="card-left">
             <div class="card-icon-row">
-              <div class="icon-box" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3);color:#6ee7b7">💬</div>
+              <div class="icon-box" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3)">
+                <svg viewBox="0 0 24 24" fill="#6ee7b7"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
               <span class="platform-badge" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3);color:#6ee7b7">WhatsApp</span>
             </div>
             <div class="card-title">Pengikut Saluran</div>
@@ -732,7 +811,10 @@
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3);color:#6ee7b7">3</div><span class="row-qty">200 Pengikut</span></div><span class="row-price" style="color:#6ee7b7">Rp 10.000</span></div>
         <div class="price-row"><div class="price-row-left"><div class="row-num" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3);color:#6ee7b7">4</div><span class="row-qty">300 Pengikut</span></div><span class="row-price" style="color:#6ee7b7">Rp 15.000</span></div>
       </div>
-      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20WhatsApp%20Pengikut%20Saluran%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">💬 Order via WhatsApp <span class="arrow">→</span></a>
+      <a href="https://wa.me/6285710147924?text=Halo%20SkyJely%2C%20saya%20ingin%20order%20WhatsApp%20Pengikut%20Saluran%20%F0%9F%99%8F" target="_blank" class="wa-order-btn">
+        <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Order via WhatsApp <span class="arrow">→</span>
+      </a>
       <div class="card-footer" style="color:#6ee7b7">skyjely 🔅</div>
     </div>
 
@@ -747,7 +829,6 @@
 
   <!-- ══ TESTIMONI SECTION ══ -->
 
-  <!-- Section Header -->
   <div class="section-header">
     <div class="section-header-inner">
       <div>
@@ -755,13 +836,15 @@
         <h2>Apa Kata Mereka?</h2>
         <p>Testimoni nyata dari pelanggan setia SkyJely jasun 🔅</p>
       </div>
-      <a href="https://whatsapp.com/channel/0029VbCalXKFcow3aBOLdp3y" target="_blank" class="channel-btn">💬 Lihat Channel WA</a>
+      <a href="https://whatsapp.com/channel/0029VbCalXKFcow3aBOLdp3y" target="_blank" class="channel-btn">
+        <svg viewBox="0 0 24 24" fill="#6ee7b7"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Lihat Channel WA
+      </a>
     </div>
   </div>
 
   <!-- Testimonial Cards -->
   <div class="testi-grid">
-
     <div class="testi-card">
       <div class="testi-quote">"</div>
       <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
@@ -774,7 +857,6 @@
         <span class="testi-verified">Verified ✓</span>
       </div>
     </div>
-
     <div class="testi-card">
       <div class="testi-quote">"</div>
       <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
@@ -787,7 +869,6 @@
         <span class="testi-verified">Verified ✓</span>
       </div>
     </div>
-
     <div class="testi-card">
       <div class="testi-quote">"</div>
       <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
@@ -800,7 +881,6 @@
         <span class="testi-verified">Verified ✓</span>
       </div>
     </div>
-
     <div class="testi-card">
       <div class="testi-quote">"</div>
       <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
@@ -813,7 +893,6 @@
         <span class="testi-verified">Verified ✓</span>
       </div>
     </div>
-
     <div class="testi-card">
       <div class="testi-quote">"</div>
       <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
@@ -826,7 +905,6 @@
         <span class="testi-verified">Verified ✓</span>
       </div>
     </div>
-
     <div class="testi-card">
       <div class="testi-quote">"</div>
       <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
@@ -839,13 +917,14 @@
         <span class="testi-verified">Verified ✓</span>
       </div>
     </div>
-
   </div>
 
   <!-- Channel CTA -->
   <div class="channel-cta">
     <div class="channel-cta-left">
-      <div class="channel-cta-icon">💬</div>
+      <div class="channel-cta-icon">
+        <svg viewBox="0 0 24 24" fill="#6ee7b7"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </div>
       <div>
         <div class="channel-cta-title">Ikuti Channel WhatsApp SkyJely jasun</div>
         <div class="channel-cta-sub">Dapatkan update harga &amp; promo terbaru langsung di WA kamu</div>
